@@ -11,7 +11,7 @@ import TableDense from 'src/views/tables/TableDense'
 import TableSpanning from 'src/views/tables/TableSpanning'
 import TableCustomized from 'src/views/tables/TableCustomized'
 import TableCollapsible from 'src/views/tables/TableCollapsible'
-import TableStickyHeader from 'src/views/tables/TableStickyHeader'
+import UserManagement from '../../views/tables/userManagement'
 
 const MUITable = () => {
   return (
@@ -39,7 +39,7 @@ const MUITable = () => {
       <Grid item xs={12}>
         <Card>
           <CardHeader title='Sticky Header' titleTypographyProps={{ variant: 'h6' }} />
-          <TableStickyHeader />
+          <UserManagement />
         </Card>
       </Grid>
       <Grid item xs={12}>

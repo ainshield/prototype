@@ -19,9 +19,9 @@ const createData = (id: number, programid: number, roleid: number,
   }
 }
 
-const row1 = [
+const rows = [
   createData(1, 13662724, 215161, 6246136, 'johndoe', 'foobar1234',
-    'John', 'D', 'Doe',0, '09123456789', 'johndoe@example.com',
+    'John', ' ', 'Doe',0, '09123456789', 'johndoe@example.com',
     'employee', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
 
 ]
@@ -51,7 +51,7 @@ const TableBasic = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {row1.map(row => (
+          {rows.map(row => (
             <TableRow
               key={row.id}
               sx={{

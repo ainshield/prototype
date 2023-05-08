@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/pages/role-manager/index.bak" afterDir="false" />
+    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="fix table data">
+      <change afterPath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/navigation/vertical/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/vertical/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/inventory/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/inventory/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/role-manager/index.bak" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/role-manager/index.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/role-manager/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/role-manager/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/tables/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tables/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/tables/TableBasic.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/TableBasic.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/TableStickyHeader.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +53,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "D:\\internship projects\\prototype\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
     "ts.external.directory.path": "D:\\internship projects\\prototype\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -81,7 +87,7 @@
       <workItem from="1683070413487" duration="11948000" />
       <workItem from="1683098814315" duration="93000" />
       <workItem from="1683244173810" duration="11197000" />
-      <workItem from="1683505912449" duration="6997000" />
+      <workItem from="1683505912449" duration="22241000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683510087221</created>
@@ -97,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683510464195</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix table data">
+      <created>1683513841072</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683513841072</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +196,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="fix table data" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix table data" />
   </component>
 </project>

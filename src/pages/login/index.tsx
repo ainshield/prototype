@@ -40,7 +40,8 @@ import BlankLayout from '../../@core/layouts/BlankLayout'
 // ** Demo Imports
 import FooterIllustrationsV1 from '../../views/pages/auth/FooterIllustration'
 
-import irriIcon from "resources/irrilogo.svg";
+// @ts-ignore
+import irriIcon from '/resources/irrilogo.svg';
 
 interface State {
   password: string
@@ -73,7 +74,7 @@ const LoginPage = () => {
   })
 
   // ** Hook
-  const theme = useTheme()
+  // const theme = useTheme()
   const router = useRouter()
 
   const handleChange = (prop: keyof State) => (event: ChangeEvent<HTMLInputElement>) => {

@@ -53,7 +53,7 @@ const navigation = (): VerticalNavItemsType => {
     // },
 
     {
-      title: 'Role Management',
+      title: 'User Management',
       icon: ManageAccountsIcon,
       path: '/role-manager'
     }
