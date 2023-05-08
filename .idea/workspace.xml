@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="initial commit" />
+    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/src/pages/role-manager/index.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/role-manager/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/role-manager/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/TableBasic.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/TableBasic.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +25,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2OxGqTXNwMfNjmmfJFq7hcewxEN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -35,7 +40,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/internship projects/prototype",
+    "last_opened_file_path": "D:/internship projects/prototype/src/pages/role-manager",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,7 +81,7 @@
       <workItem from="1683070413487" duration="11948000" />
       <workItem from="1683098814315" duration="93000" />
       <workItem from="1683244173810" duration="11197000" />
-      <workItem from="1683505912449" duration="3691000" />
+      <workItem from="1683505912449" duration="6997000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683510087221</created>
@@ -85,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683510087221</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="initial commit">
+      <created>1683510464195</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683510464195</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
