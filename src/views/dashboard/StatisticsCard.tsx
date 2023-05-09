@@ -17,6 +17,7 @@ import CurrencyUsd from 'mdi-material-ui/CurrencyUsd'
 import DotsVertical from 'mdi-material-ui/DotsVertical'
 import CellphoneLink from 'mdi-material-ui/CellphoneLink'
 import AccountOutline from 'mdi-material-ui/AccountOutline'
+import ConstructionIcon from '@mui/icons-material/Construction';
 
 // ** Types
 import { ThemeColor } from 'src/@core/layouts/types'
@@ -30,10 +31,10 @@ interface DataType {
 
 const salesData: DataType[] = [
   {
-    stats: '245k',
-    title: 'Sales',
+    stats: '5',
+    title: 'Pending Repairs',
     color: 'primary',
-    icon: <TrendingUp sx={{ fontSize: '1.75rem' }} />
+    icon: <ConstructionIcon sx={{ fontSize: '1.75rem' }} />
   },
   {
     stats: '12.5k',
@@ -85,7 +86,7 @@ const StatisticsCard = () => {
   return (
     <Card>
       <CardHeader
-        title='Statistics Card'
+        title='Summary'
         action={
           <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
             <DotsVertical />
@@ -94,9 +95,8 @@ const StatisticsCard = () => {
         subheader={
           <Typography variant='body2'>
             <Box component='span' sx={{ fontWeight: 600, color: 'text.primary' }}>
-              Total 48.5% growth
+              This week's summary
             </Box>{' '}
-            😎 this month
           </Typography>
         }
         titleTypographyProps={{

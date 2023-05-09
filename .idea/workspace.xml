@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="fix table data">
-      <change afterPath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/supplier-list/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/system-config/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/tables/userManagement.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/navigation/vertical/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/vertical/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/inventory/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/inventory/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/role-manager/index.bak" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/role-manager/index.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/role-manager/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/role-manager/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/tables/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/tables/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/TableBasic.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/TableBasic.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/TableStickyHeader.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/account-settings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile-manager/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/role-manager/index.bak" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user-manager/index.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/role-manager/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user-manager/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/StatisticsCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/StatisticsCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/WeeklyOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/WeeklyOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +25,13 @@
   </component>
   <component name="EditorConfigPreviewManager">
     <editorConfig file="$PROJECT_DIR$/.editorconfig" previewFile="$PROJECT_DIR$/src/navigation/vertical/index.ts" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,24 +55,26 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/internship projects/prototype/src/pages/role-manager",
+    "last_opened_file_path": "D:/internship projects/prototype/src/views/tables",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "D:\\internship projects\\prototype\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "D:\\internship projects\\prototype\\node_modules\\typescript\\lib",
+    "two.files.diff.last.used.file": "D:/internship projects/prototype/src/views/tables/TableCollapsible.tsx",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\internship projects\prototype\src\views\tables" />
+      <recent name="D:\internship projects\prototype\src\pages\system-config" />
+      <recent name="D:\internship projects\prototype\src\pages\supplier-list" />
       <recent name="D:\internship projects\prototype\src\pages\role-manager" />
       <recent name="D:\internship projects\prototype\src\pages\inventory" />
-      <recent name="D:\internship projects\prototype\src\navigation\vertical" />
-      <recent name="D:\internship projects\prototype\src\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\internship projects\prototype\src\pages" />
@@ -87,7 +98,8 @@
       <workItem from="1683070413487" duration="11948000" />
       <workItem from="1683098814315" duration="93000" />
       <workItem from="1683244173810" duration="11197000" />
-      <workItem from="1683505912449" duration="22241000" />
+      <workItem from="1683505912449" duration="23619000" />
+      <workItem from="1683588562559" duration="8356000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683510087221</created>
@@ -110,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683513841072</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix table data">
+      <created>1683534482381</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683534482381</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -13,6 +13,8 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import PersonIcon from '@mui/icons-material/Person';
 import WarehouseIcon from '@mui/icons-material/Warehouse';
+import SettingsIcon from '@mui/icons-material/Settings';
+import ContactsIcon from '@mui/icons-material/Contacts';
 
 // ** Type import
 import { VerticalNavItemsType } from 'src/@core/layouts/types'
@@ -37,9 +39,15 @@ const navigation = (): VerticalNavItemsType => {
     },
 
     {
-      title: 'Account Settings',
+      title:'Supplier List',
+      icon: ContactsIcon,
+      path: '/supplier-list'
+    },
+
+    {
+      title: 'Profile Management',
       icon: PersonIcon,
-      path: '/account-settings'
+      path: '/profile-manager'
     },
 
     {
@@ -55,7 +63,12 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'User Management',
       icon: ManageAccountsIcon,
-      path: '/role-manager'
+      path: '/user-manager'
+    },
+    {
+      title: 'System Configuration',
+      icon: SettingsIcon,
+      path: '/system-config'
     }
   ]
 }
