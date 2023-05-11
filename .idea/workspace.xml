@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="fix table data">
-      <change afterPath="$PROJECT_DIR$/src/pages/supplier-list/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/system-config/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/tables/userManagement.bak" afterDir="false" />
+    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="experiment userManagement.tsx tabledata">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/vertical/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/vertical/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account-settings/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile-manager/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/role-manager/index.bak" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user-manager/index.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/role-manager/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user-manager/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/StatisticsCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/StatisticsCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/dashboard/WeeklyOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/WeeklyOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/@core/theme/palette/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/@core/theme/palette/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user-manager/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user-manager/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,33 +44,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/internship projects/prototype/src/views/tables",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "D:\\internship projects\\prototype\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "D:\\internship projects\\prototype\\node_modules\\typescript\\lib",
-    "two.files.diff.last.used.file": "D:/internship projects/prototype/src/views/tables/TableCollapsible.tsx",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/internship projects/prototype/src/pages/user-manager&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\internship projects\\prototype\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\internship projects\\prototype\\node_modules\\typescript\\lib&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;D:/internship projects/prototype/src/views/tables/TableCollapsible.tsx&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\internship projects\prototype\src\pages\user-manager" />
       <recent name="D:\internship projects\prototype\src\views\tables" />
       <recent name="D:\internship projects\prototype\src\pages\system-config" />
       <recent name="D:\internship projects\prototype\src\pages\supplier-list" />
       <recent name="D:\internship projects\prototype\src\pages\role-manager" />
-      <recent name="D:\internship projects\prototype\src\pages\inventory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\internship projects\prototype\src\pages" />
@@ -99,7 +95,10 @@
       <workItem from="1683098814315" duration="93000" />
       <workItem from="1683244173810" duration="11197000" />
       <workItem from="1683505912449" duration="23619000" />
-      <workItem from="1683588562559" duration="8356000" />
+      <workItem from="1683588562559" duration="15928000" />
+      <workItem from="1683678655901" duration="9818000" />
+      <workItem from="1683690174453" duration="12047000" />
+      <workItem from="1683762580124" duration="10670000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683510087221</created>
@@ -129,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683534482381</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="experiment userManagement.tsx tabledata">
+      <created>1683601952421</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683601952422</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +222,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="fix table data" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix table data" />
+    <MESSAGE value="experiment userManagement.tsx tabledata" />
+    <option name="LAST_COMMIT_MESSAGE" value="experiment userManagement.tsx tabledata" />
   </component>
 </project>

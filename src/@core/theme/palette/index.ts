@@ -36,15 +36,15 @@ const DefaultPalette = (mode: PaletteMode, themeColor: ThemeColor) => {
     },
     mode: mode,
     primary: {
-      light: '#9AA66A',
+      light: '#7F895F',
       main: '#606C38',
-      dark: '#4F5C28',
+      dark: '#434B27',
       contrastText: '#FFF'
     },
     secondary: {
-      light: '#9C9FA4',
-      main: '#8A8D93',
-      dark: '#777B82',
+      light: '#A9854F',
+      main: '#946724',
+      dark: '#674819',
       contrastText: '#FFF'
     },
     success: {
