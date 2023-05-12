@@ -57,7 +57,7 @@ const VerticalNavHeader = (props: Props) => {
   const { verticalNavMenuBranding: userVerticalNavMenuBranding } = props
 
   // ** Hooks
-  const theme = useTheme()
+  //const theme = useTheme()
 
   return (
     <MenuHeaderWrapper className='nav-header' sx={{ pl: 6 }}>
@@ -69,11 +69,21 @@ const VerticalNavHeader = (props: Props) => {
             <Image
               priority
               src={irriIcon}
-
+              height={100}
+              width={100}
             />
-            <HeaderTitle variant='h6' sx={{ ml: 3 }}>
+            <Typography
+              variant='h1'
+              sx={{
+                ml: 3,
+                lineHeight: 1,
+                fontWeight: 600,
+                textTransform: 'sentencecase',
+                fontSize: '1.5rem !important'
+              }}
+            >
               {themeConfig.templateName}
-            </HeaderTitle>
+            </Typography>
           </StyledLink>
         </Link>
       )}
