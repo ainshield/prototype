@@ -78,6 +78,7 @@ const VerticalNavHeader = (props: Props) => {
               src={irriIcon}
               height={100}
               width={100}
+              alt='irri logo'
             />
             <Typography
               variant='h1'
