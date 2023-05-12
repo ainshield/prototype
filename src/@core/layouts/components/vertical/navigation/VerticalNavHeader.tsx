@@ -7,8 +7,15 @@ import Image from 'next/image';
 
 // ** MUI Imports
 import Box, { BoxProps } from '@mui/material/Box'
-import { styled, useTheme } from '@mui/material/styles'
-import Typography, { TypographyProps } from '@mui/material/Typography'
+import { styled,
+
+  // useTheme
+
+} from '@mui/material/styles'
+import Typography, {
+
+  // TypographyProps
+} from '@mui/material/Typography'
 
 // ** Type Import
 import { Settings } from 'src/@core/context/settingsContext'
@@ -38,13 +45,13 @@ const MenuHeaderWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   minHeight: theme.mixins.toolbar.minHeight
 }))
 
-const HeaderTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
-  fontWeight: 600,
-  lineHeight: 'normal',
-  textTransform: 'uppercase',
-  color: theme.palette.text.primary,
-  transition: 'opacity .25s ease-in-out, margin .25s ease-in-out'
-}))
+// const HeaderTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
+//   fontWeight: 600,
+//   lineHeight: 'normal',
+//   textTransform: 'uppercase',
+//   color: theme.palette.text.primary,
+//   transition: 'opacity .25s ease-in-out, margin .25s ease-in-out'
+// }))
 
 const StyledLink = styled('a')({
   display: 'flex',
