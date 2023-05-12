@@ -10,17 +10,17 @@ import TableCell from '@mui/material/TableCell'
 import Typography from '@mui/material/Typography'
 import TableContainer from '@mui/material/TableContainer'
 
+
 // ** Types Imports
 import { ThemeColor } from 'src/@core/layouts/types'
 
 interface RowType {
-  age: number
-  name: string
-  date: string
-  email: string
-  salary: string
+  equipmentName: string
+  issued: string
+  issuer: string
+  dateIssued: string
   status: string
-  designation: string
+  position: string
 }
 
 interface StatusObj {
@@ -31,85 +31,21 @@ interface StatusObj {
 
 const rows: RowType[] = [
   {
-    age: 27,
-    status: 'current',
-    date: '09/27/2018',
-    name: 'Sally Quinn',
-    salary: '$19586.23',
-    email: 'eebsworth2m@sbwire.com',
-    designation: 'Human Resources Assistant'
-  },
-  {
-    age: 61,
-    date: '09/23/2016',
-    salary: '$23896.35',
-    status: 'professional',
-    name: 'Margaret Bowers',
-    email: 'kocrevy0@thetimes.co.uk',
-    designation: 'Nuclear Power Engineer'
-  },
-  {
-    age: 59,
-    date: '10/15/2017',
-    name: 'Minnie Roy',
-    status: 'rejected',
-    salary: '$18991.67',
-    email: 'ediehn6@163.com',
-    designation: 'Environmental Specialist'
-  },
-  {
-    age: 30,
-    date: '06/12/2018',
-    status: 'resigned',
-    salary: '$19252.12',
-    name: 'Ralph Leonard',
-    email: 'dfalloona@ifeng.com',
-    designation: 'Sales Representative'
-  },
-  {
-    age: 66,
-    status: 'applied',
-    date: '03/24/2018',
-    salary: '$13076.28',
-    name: 'Annie Martin',
-    designation: 'Operator',
-    email: 'sganderton2@tuttocitta.it'
-  },
-  {
-    age: 33,
-    date: '08/25/2017',
-    salary: '$10909.52',
-    name: 'Adeline Day',
-    status: 'professional',
-    email: 'hnisius4@gnu.org',
-    designation: 'Senior Cost Accountant'
-  },
-  {
-    age: 61,
-    status: 'current',
-    date: '06/01/2017',
-    salary: '$17803.80',
-    name: 'Lora Jackson',
-    designation: 'Geologist',
-    email: 'ghoneywood5@narod.ru'
-  },
-  {
-    age: 22,
-    date: '12/03/2017',
-    salary: '$12336.17',
-    name: 'Rodney Sharp',
-    status: 'professional',
-    designation: 'Cost Accountant',
-    email: 'dcrossman3@google.co.jp'
+    status: 'urgent',
+    issued: 'John Doe',
+    equipmentName: 'Sony Xperia Z Tablet',
+    dateIssued: '09/27/2018',
+    issuer: 'Jane Doe',
+    position: 'Human Resources Assistant'
   }
 ]
 
 const statusObj: StatusObj = {
-  applied: { color: 'info' },
-  rejected: { color: 'error' },
-  current: { color: 'primary' },
-  resigned: { color: 'warning' },
-  professional: { color: 'success' }
+  // applied: { color: 'info' },
+  // rejected: { color: 'error' },
+  ongoing: { color: 'primary' },
+  urgent: { color: 'warning' },
+  finished: { color: 'success' }
 }
 
 const DashboardTable = () => {
@@ -119,27 +55,25 @@ const DashboardTable = () => {
         <Table sx={{ minWidth: 800 }} aria-label='table in dashboard'>
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Date</TableCell>
-              <TableCell>Salary</TableCell>
-              <TableCell>Age</TableCell>
+              <TableCell>Equipment Name</TableCell>
+              <TableCell>Issuer</TableCell>
+              <TableCell>Issued</TableCell>
+              <TableCell>Issued Date</TableCell>
               <TableCell>Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row: RowType) => (
-              <TableRow hover key={row.name} sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}>
+              <TableRow hover key={row.equipmentName} sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}>
                 <TableCell sx={{ py: theme => `${theme.spacing(0.5)} !important` }}>
                   <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                    <Typography sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}>{row.name}</Typography>
-                    <Typography variant='caption'>{row.designation}</Typography>
+                    <Typography sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}>{row.equipmentName}</Typography>
+                    {/*<Typography variant='caption'>{row.position}</Typography>*/}
                   </Box>
                 </TableCell>
-                <TableCell>{row.email}</TableCell>
-                <TableCell>{row.date}</TableCell>
-                <TableCell>{row.salary}</TableCell>
-                <TableCell>{row.age}</TableCell>
+                <TableCell>{row.issuer}</TableCell>
+                <TableCell>{row.issued}</TableCell>
+                <TableCell>{row.dateIssued}</TableCell>
                 <TableCell>
                   <Chip
                     label={row.status}
