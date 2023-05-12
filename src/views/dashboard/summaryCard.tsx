@@ -30,7 +30,7 @@ interface DataType {
 const salesData: DataType[] = [
   {
     stats: '5',
-    title: 'In Progress',
+    title: 'Ongoing',
     color: 'primary',
     icon: <ConstructionIcon sx={{ fontSize: '1.75rem' }} />
   },
