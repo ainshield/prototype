@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="revamped summaryCard.tsx in dashboard.">
+    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="resolved unused imports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/system-config/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/system-config/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +97,7 @@
       <workItem from="1683678655901" duration="9818000" />
       <workItem from="1683690174453" duration="12047000" />
       <workItem from="1683762580124" duration="22596000" />
-      <workItem from="1683848339537" duration="5581000" />
+      <workItem from="1683848339537" duration="7511000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683510087221</created>
@@ -164,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683854627331</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="resolved unused imports">
+      <created>1683854787124</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683854787124</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +261,7 @@
     <MESSAGE value="aligned color palette to irri logo. applied crud table to supplier list.&#10;removed unused directories, and files." />
     <MESSAGE value="resolved 'require' error in next.config.js." />
     <MESSAGE value="revamped summaryCard.tsx in dashboard." />
-    <option name="LAST_COMMIT_MESSAGE" value="revamped summaryCard.tsx in dashboard." />
+    <MESSAGE value="resolved unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolved unused imports" />
   </component>
 </project>
