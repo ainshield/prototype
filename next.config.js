@@ -1,4 +1,5 @@
-const path = require('path')
+let path
+path = require('path')
 
 module.exports = {
   trailingSlash: true,
@@ -22,9 +23,9 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/dashboard',
-        permanent: false,
-      },
+        destination: '/login',
+        permanent: false
+      }
     ]
-  },
+  }
 }
