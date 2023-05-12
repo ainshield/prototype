@@ -4,7 +4,7 @@ import { ChangeEvent, MouseEvent, ReactNode, useState } from 'react'
 // ** Next Imports
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Image from 'next/image';
+import Image from 'next/image'
 
 // ** MUI Components
 import Box from '@mui/material/Box'
@@ -18,7 +18,11 @@ import IconButton from '@mui/material/IconButton'
 import CardContent from '@mui/material/CardContent'
 import FormControl from '@mui/material/FormControl'
 import OutlinedInput from '@mui/material/OutlinedInput'
-import { styled, useTheme } from '@mui/material/styles'
+import {
+  styled
+
+  // ,useTheme
+} from '@mui/material/styles'
 import MuiCard, { CardProps } from '@mui/material/Card'
 import InputAdornment from '@mui/material/InputAdornment'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
@@ -38,10 +42,10 @@ import themeConfig from '../../configs/themeConfig'
 import BlankLayout from '../../@core/layouts/BlankLayout'
 
 // ** Demo Imports
-import FooterIllustrationsV1 from '../../views/pages/auth/FooterIllustration'
+// import FooterIllustrationsV1 from '../../views/pages/auth/FooterIllustration'
 
 // @ts-ignore
-import irriIcon from '/resources/irrilogo.svg';
+import irriIcon from '/resources/irrilogo.svg'
 
 interface State {
   password: string
@@ -94,20 +98,15 @@ const LoginPage = () => {
       <Card sx={{ zIndex: 1 }}>
         <CardContent sx={{ padding: theme => `${theme.spacing(12, 9, 7)} !important` }}>
           <Box sx={{ mb: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-
-            <Image
-              priority
-              src={irriIcon}
-
-            />
+            <Image priority src={irriIcon} width={100} height={100} alt='irri logo' />
 
             <Typography
-              variant='h6'
+              variant='h1'
               sx={{
                 ml: 3,
                 lineHeight: 1,
                 fontWeight: 600,
-                textTransform: 'uppercase',
+                textTransform: 'sentencecase',
                 fontSize: '1.5rem !important'
               }}
             >
@@ -157,7 +156,7 @@ const LoginPage = () => {
             </Button>
             <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
               <Typography variant='body2' sx={{ marginRight: 2 }}>
-                New on our platform?
+                New user?
               </Typography>
               <Typography variant='body2'>
                 <Link passHref href='/register'>
