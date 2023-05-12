@@ -14,7 +14,7 @@ import Box, { BoxProps } from '@mui/material/Box'
 import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Demo Imports
-import FooterIllustrations from 'src/views/pages/misc/FooterIllustrations'
+// import FooterIllustrations from 'src/views/pages/misc/FooterIllustrations'
 
 // ** Styled Components
 const BoxWrapper = styled(Box)<BoxProps>(({ theme }) => ({
@@ -23,19 +23,19 @@ const BoxWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   }
 }))
 
-const Img = styled('img')(({ theme }) => ({
-  marginBottom: theme.spacing(10),
-  [theme.breakpoints.down('lg')]: {
-    height: 450,
-    marginTop: theme.spacing(10)
-  },
-  [theme.breakpoints.down('md')]: {
-    height: 400
-  },
-  [theme.breakpoints.up('lg')]: {
-    marginTop: theme.spacing(13)
-  }
-}))
+// const Img = styled('img')(({ theme }) => ({
+//   marginBottom: theme.spacing(10),
+//   [theme.breakpoints.down('lg')]: {
+//     height: 450,
+//     marginTop: theme.spacing(10)
+//   },
+//   [theme.breakpoints.down('md')]: {
+//     height: 400
+//   },
+//   [theme.breakpoints.up('lg')]: {
+//     marginTop: theme.spacing(13)
+//   }
+// }))
 
 const Error401 = () => {
   return (
@@ -44,18 +44,18 @@ const Error401 = () => {
         <BoxWrapper>
           <Typography variant='h1'>401</Typography>
           <Typography variant='h5' sx={{ mb: 1, fontSize: '1.5rem !important' }}>
-            You are not authorized! 🔐
+            You are not authorized.
           </Typography>
-          <Typography variant='body2'>You don&prime;t have permission to access this page. Go Home!</Typography>
+          <Typography variant='body2'>You don&prime;t have permission to access this page.<br/><br/></Typography>
         </BoxWrapper>
-        <Img height='487' alt='error-illustration' src='/images/pages/401.png' />
-        <Link passHref href='/'>
+        {/*<Img height='487' alt='error-illustration' src='/images/pages/401.png' />*/}
+        <Link passHref href='/dashboard'>
           <Button component='a' variant='contained' sx={{ px: 5.5 }}>
             Back to Home
           </Button>
         </Link>
       </Box>
-      <FooterIllustrations />
+      {/*<FooterIllustrations />*/}
     </Box>
   )
 }
