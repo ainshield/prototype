@@ -12,12 +12,10 @@ import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 
 // ** Icons Imports
-import TrendingUp from 'mdi-material-ui/TrendingUp'
-import CurrencyUsd from 'mdi-material-ui/CurrencyUsd'
 import DotsVertical from 'mdi-material-ui/DotsVertical'
 import CellphoneLink from 'mdi-material-ui/CellphoneLink'
 import AccountOutline from 'mdi-material-ui/AccountOutline'
-import ConstructionIcon from '@mui/icons-material/Construction';
+import ConstructionIcon from '@mui/icons-material/Construction'
 
 // ** Types
 import { ThemeColor } from 'src/@core/layouts/types'
@@ -32,33 +30,28 @@ interface DataType {
 const salesData: DataType[] = [
   {
     stats: '5',
-    title: 'Pending Repairs',
+    title: 'In Progress',
     color: 'primary',
     icon: <ConstructionIcon sx={{ fontSize: '1.75rem' }} />
   },
   {
     stats: '12.5k',
-    title: 'Customers',
+    title: 'Resolved',
     color: 'success',
     icon: <AccountOutline sx={{ fontSize: '1.75rem' }} />
   },
   {
     stats: '1.54k',
     color: 'warning',
-    title: 'Products',
+    title: 'Pending',
     icon: <CellphoneLink sx={{ fontSize: '1.75rem' }} />
-  },
-  {
-    stats: '$88k',
-    color: 'info',
-    title: 'Revenue',
-    icon: <CurrencyUsd sx={{ fontSize: '1.75rem' }} />
   }
+
 ]
 
 const renderStats = () => {
   return salesData.map((item: DataType, index: number) => (
-    <Grid item xs={12} sm={3} key={index}>
+    <Grid item xs={6} sm={4} key={index}>
       <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
         <Avatar
           variant='rounded'
@@ -82,7 +75,7 @@ const renderStats = () => {
   ))
 }
 
-const StatisticsCard = () => {
+const SummaryCard = () => {
   return (
     <Card>
       <CardHeader
@@ -116,4 +109,4 @@ const StatisticsCard = () => {
   )
 }
 
-export default StatisticsCard
+export default SummaryCard

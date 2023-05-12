@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="update user-management table to crud table">
-      <change afterPath="$PROJECT_DIR$/src/views/tables/inventory.tsx" afterDir="false" />
+    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="aligned color palette to irri logo. applied crud table to supplier list.&#10;removed unused directories, and files.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/@core/theme/palette/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/@core/theme/palette/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/cards/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/form-layouts/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/icons/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/inventory/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/inventory/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/supplier-list/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/supplier-list/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/tables/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/typography/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/TableBasic.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/TableCollapsible.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/TableCustomized.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/TableDense.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/tables/TableSpanning.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/system-config/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/system-config/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/StatisticsCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/summaryCard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +34,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2OxGqTXNwMfNjmmfJFq7hcewxEN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -59,14 +49,17 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "javascript.nodejs.core.library.configured.version": "18.12.1",
+    "javascript.nodejs.core.library.typings.version": "18.16.8",
     "last_opened_file_path": "D:/internship projects/prototype/src/pages/supplier-list",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "C:/Program Files/nodejs/node",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "D:\\internship projects\\prototype\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "settings.nodejs",
     "ts.external.directory.path": "D:\\internship projects\\prototype\\node_modules\\typescript\\lib",
     "two.files.diff.last.used.file": "D:/internship projects/prototype/src/views/tables/TableCollapsible.tsx",
     "vue.rearranger.settings.migration": "true"
@@ -106,7 +99,8 @@
       <workItem from="1683588562559" duration="15928000" />
       <workItem from="1683678655901" duration="9818000" />
       <workItem from="1683690174453" duration="12047000" />
-      <workItem from="1683762580124" duration="21172000" />
+      <workItem from="1683762580124" duration="22596000" />
+      <workItem from="1683848339537" duration="5103000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683510087221</created>
@@ -150,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683781868817</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="aligned color palette to irri logo. applied crud table to supplier list.&#10;removed unused directories, and files.">
+      <created>1683793556435</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683793556435</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +240,7 @@
     <MESSAGE value="fix table data" />
     <MESSAGE value="experiment userManagement.tsx tabledata" />
     <MESSAGE value="update user-management table to crud table" />
-    <option name="LAST_COMMIT_MESSAGE" value="update user-management table to crud table" />
+    <MESSAGE value="aligned color palette to irri logo. applied crud table to supplier list.&#10;removed unused directories, and files." />
+    <option name="LAST_COMMIT_MESSAGE" value="aligned color palette to irri logo. applied crud table to supplier list.&#10;removed unused directories, and files." />
   </component>
 </project>
