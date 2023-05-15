@@ -18,7 +18,8 @@ import InformationOutline from 'mdi-material-ui/InformationOutline'
 // ** Demo Tabs Imports
 import SystemSettingsTab from 'src/views/account-settings/systemsettings'
 import InfoTab from '../../views/account-settings/about'
-import TabSecurity from 'src/views/account-settings/TabSecurity'
+
+// import TabSecurity from 'src/views/account-settings/TabSecurity'
 
 // ** Third Party Styles Imports
 import 'react-datepicker/dist/react-datepicker.css'
@@ -66,15 +67,15 @@ const AccountSettings = () => {
               </Box>
             }
           />
-          <Tab
-            value='security'
-            label={
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <LockOpenOutline />
-                <TabName>Security</TabName>
-              </Box>
-            }
-          />
+          {/*<Tab*/}
+          {/*  value='security'*/}
+          {/*  label={*/}
+          {/*    <Box sx={{ display: 'flex', alignItems: 'center' }}>*/}
+          {/*      <LockOpenOutline />*/}
+          {/*      <TabName>Security</TabName>*/}
+          {/*    </Box>*/}
+          {/*  }*/}
+          {/*/>*/}
           <Tab
             value='about'
             label={
@@ -89,9 +90,9 @@ const AccountSettings = () => {
         <TabPanel sx={{ p: 0 }} value='system'>
           <SystemSettingsTab />
         </TabPanel>
-        <TabPanel sx={{ p: 0 }} value='security'>
-          <TabSecurity />
-        </TabPanel>
+        {/*<TabPanel sx={{ p: 0 }} value='security'>*/}
+        {/*  <TabSecurity />*/}
+        {/*</TabPanel>*/}
         <TabPanel sx={{ p: 0 }} value='about'>
           <InfoTab />
         </TabPanel>
