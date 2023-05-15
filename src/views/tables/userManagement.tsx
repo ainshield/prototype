@@ -187,8 +187,9 @@ export default function FullFeaturedCrudGrid() {
       headerName: 'Last Login',
       type: 'dateTime',
       width: 830,
-      maxWidth: 830,
-      minWidth: 830,
+
+      // maxWidth: 830,
+      // minWidth: 830,
       editable: true
     },
     {
