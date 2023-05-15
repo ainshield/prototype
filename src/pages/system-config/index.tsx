@@ -16,8 +16,8 @@ import LockOpenOutline from 'mdi-material-ui/LockOpenOutline'
 import InformationOutline from 'mdi-material-ui/InformationOutline'
 
 // ** Demo Tabs Imports
-import TabInfo from 'src/views/account-settings/TabInfo'
-import TabAccount from 'src/views/account-settings/TabAccount'
+import SystemSettingsTab from 'src/views/account-settings/systemsettings'
+import InfoTab from '../../views/account-settings/about'
 import TabSecurity from 'src/views/account-settings/TabSecurity'
 
 // ** Third Party Styles Imports
@@ -43,7 +43,7 @@ const TabName = styled('span')(({ theme }) => ({
 
 const AccountSettings = () => {
   // ** State
-  const [value, setValue] = useState<string>('account')
+  const [value, setValue] = useState<string>('system')
 
   const handleChange = (event: SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -58,11 +58,11 @@ const AccountSettings = () => {
           sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
         >
           <Tab
-            value='account'
+            value='system'
             label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <AccountOutline />
-                <TabName>Account</TabName>
+                <TabName>System</TabName>
               </Box>
             }
           />
@@ -76,24 +76,24 @@ const AccountSettings = () => {
             }
           />
           <Tab
-            value='info'
+            value='about'
             label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <InformationOutline />
-                <TabName>Info</TabName>
+                <TabName>About</TabName>
               </Box>
             }
           />
         </TabList>
 
-        <TabPanel sx={{ p: 0 }} value='account'>
-          <TabAccount />
+        <TabPanel sx={{ p: 0 }} value='system'>
+          <SystemSettingsTab />
         </TabPanel>
         <TabPanel sx={{ p: 0 }} value='security'>
           <TabSecurity />
         </TabPanel>
-        <TabPanel sx={{ p: 0 }} value='info'>
-          <TabInfo />
+        <TabPanel sx={{ p: 0 }} value='about'>
+          <InfoTab />
         </TabPanel>
       </TabContext>
     </Card>
