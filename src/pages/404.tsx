@@ -53,7 +53,7 @@ const Error404 = () => {
         <BoxWrapper>
           <Typography variant='h1'>404</Typography>
           <Typography variant='h5' sx={{ mb: 1, fontSize: '1.5rem !important' }}>
-            Page Not Found ⚠️
+            Page Not Found
           </Typography>
           <Typography variant='body2'>We couldn&prime;t find the page you are looking for. <br/><br/></Typography>
         </BoxWrapper>
