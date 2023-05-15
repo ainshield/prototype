@@ -30,7 +30,7 @@ const Dashboard = () => {
           <SummaryCard />
         </Grid>
         <Grid item xs={8} md={6}>
-          <SummaryCard />
+          {/*<SummaryCard />*/}
         </Grid>
         <Grid item xs={12}>
           <WeeklyOverview />
