@@ -76,11 +76,11 @@ const TabSecurity = () => {
 
   return (
     <form>
-      <CardContent sx={{ paddingBottom: 0 }}>
+      <CardContent sx={{ paddingBottom: 2 }}>
         <Grid container spacing={5}>
           <Grid item xs={12} sm={6}>
             <Grid container spacing={5}>
-              <Grid item xs={12} sx={{ marginTop: 4.75 }}>
+              <Grid item xs={12} sx={{ marginTop: 4.75}}>
                 <FormControl fullWidth>
                   <InputLabel htmlFor='account-settings-current-password'>Current Password</InputLabel>
                   <OutlinedInput
@@ -105,7 +105,7 @@ const TabSecurity = () => {
                 </FormControl>
               </Grid>
 
-              <Grid item xs={12} sx={{ marginTop: 6 }}>
+              <Grid item xs={12} sx={{ marginTop: 4.75 }}>
                 <FormControl fullWidth>
                   <InputLabel htmlFor='account-settings-new-password'>New Password</InputLabel>
                   <OutlinedInput
@@ -157,18 +157,10 @@ const TabSecurity = () => {
             </Grid>
           </Grid>
 
-          <Grid
-            item
-            sm={6}
-            xs={12}
-            sx={{ display: 'flex', marginTop: [7.5, 2.5], alignItems: 'center', justifyContent: 'center' }}
-          >
-            <img width={183} alt='avatar' height={256} src='/images/pages/pose-m-1.png' />
-          </Grid>
         </Grid>
       </CardContent>
 
-      <Divider sx={{ margin: 0 }} />
+      <Divider sx={{ margin: 5 }} />
 
       <CardContent>
         <Box sx={{ mt: 1.75, display: 'flex', alignItems: 'center' }}>
@@ -209,7 +201,7 @@ const TabSecurity = () => {
           <Button
             type='reset'
             variant='outlined'
-            color='secondary'
+            color='error'
             onClick={() => setValues({ ...values, currentPassword: '', newPassword: '', confirmNewPassword: '' })}
           >
             Reset

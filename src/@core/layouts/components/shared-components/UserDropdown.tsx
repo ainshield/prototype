@@ -66,20 +66,21 @@ const UserDropdown = () => {
 
   return (
     <Fragment>
-      <Badge
-        overlap='circular'
+      <Avatar
+        alt='John Doe'
         onClick={handleDropdownOpen}
-        sx={{ ml: 2, cursor: 'pointer' }}
-        badgeContent={<BadgeContentSpan />}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      >
-        <Avatar
-          alt='John Doe'
-          onClick={handleDropdownOpen}
-          sx={{ width: 40, height: 40 }}
-          src='/images/avatars/1.png'
-        />
-      </Badge>
+        sx={{ width: 40, height: 40 }}
+        src='/images/avatars/1.png'
+      />
+      {/*<Badge*/}
+      {/*  overlap='circular'*/}
+      {/*  onClick={handleDropdownOpen}*/}
+      {/*  sx={{ ml: 2, cursor: 'pointer' }}*/}
+      {/*  badgeContent={<BadgeContentSpan />}*/}
+      {/*  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}*/}
+      {/*>*/}
+      {/*  */}
+      {/*</Badge>*/}
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
@@ -88,15 +89,18 @@ const UserDropdown = () => {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <Box sx={{ pt: 2, pb: 3, px: 4 }}>
+        <Box
+          sx={{ pt: 2, pb: 3, px: 4 }}
+        >
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Badge
-              overlap='circular'
-              badgeContent={<BadgeContentSpan />}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            >
-              <Avatar alt='John Doe' src='/images/avatars/1.png' sx={{ width: '2.5rem', height: '2.5rem' }} />
-            </Badge>
+            <Avatar alt='John Doe' src='/images/avatars/1.png' sx={{ width: '2.5rem', height: '2.5rem' }} />
+            {/*<Badge*/}
+            {/*  overlap='circular'*/}
+            {/*  badgeContent={<BadgeContentSpan />}*/}
+            {/*  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}*/}
+            {/*>*/}
+
+            {/*</Badge>*/}
             <Box sx={{ display: 'flex', marginLeft: 3, alignItems: 'flex-start', flexDirection: 'column' }}>
               <Typography sx={{ fontWeight: 600 }}>John Doe</Typography>
               <Typography variant='body2' sx={{ fontSize: '0.8rem', color: 'text.disabled' }}>
@@ -106,20 +110,20 @@ const UserDropdown = () => {
           </Box>
         </Box>
         <Divider sx={{ mt: 0, mb: 1 }} />
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
-          <Box sx={styles}>
-            <EmailOutline sx={{ marginRight: 2 }} />
-            Inbox
-          </Box>
-        </MenuItem>
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
-          <Box sx={styles}>
-            <MessageOutline sx={{ marginRight: 2 }} />
-            Chat
-          </Box>
-        </MenuItem>
-        <Divider />
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/account-settings')}>
+        {/*<MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>*/}
+        {/*  <Box sx={styles}>*/}
+        {/*    <EmailOutline sx={{ marginRight: 2 }} />*/}
+        {/*    Inbox*/}
+        {/*  </Box>*/}
+        {/*</MenuItem>*/}
+        {/*<MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>*/}
+        {/*  <Box sx={styles}>*/}
+        {/*    <MessageOutline sx={{ marginRight: 2 }} />*/}
+        {/*    Chat*/}
+        {/*  </Box>*/}
+        {/*</MenuItem>*/}
+        {/*<Divider />*/}
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/profile-manager')}>
           <Box sx={styles}>
             <CogOutline sx={{ marginRight: 2 }} />
             Settings

@@ -12,7 +12,7 @@ const UserManagement = () => {
 
     <Grid item xs={12}>
       <Card>
-        <CardHeader title='User Management' titleTypographyProps={{ variant: 'h6' }} />
+        <CardHeader title='Suppliers' titleTypographyProps={{ variant: 'h6' }} />
         <UserManagementTable />
       </Card>
     </Grid>

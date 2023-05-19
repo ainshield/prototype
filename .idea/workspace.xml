@@ -4,8 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="resolved unused imports">
+    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="removed security tab; started building system tab in systemsettings.tsx">
+      <change afterPath="$PROJECT_DIR$/resources/repair-tools.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/test-table/makeData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/tables/data/userData.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/avatars/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/avatars/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/@core/layouts/components/shared-components/NotificationDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/@core/layouts/components/shared-components/NotificationDropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/@core/layouts/components/shared-components/UserDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/@core/layouts/components/shared-components/UserDropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/UpgradeToProButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/UpgradeToProButton.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/vertical/AppBarContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/vertical/AppBarContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/supplier-list/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/supplier-list/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/test-table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/test-table/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user-manager/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user-manager/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/account-settings/TabSecurity.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/account-settings/TabSecurity.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +47,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2OxGqTXNwMfNjmmfJFq7hcewxEN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -37,38 +55,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "18.12.1",
-    "javascript.nodejs.core.library.typings.version": "18.16.8",
-    "last_opened_file_path": "D:/internship projects/prototype/src/pages/supplier-list",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "C:/Program Files/nodejs/node",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "D:\\internship projects\\prototype\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.nodejs",
-    "ts.external.directory.path": "D:\\internship projects\\prototype\\node_modules\\typescript\\lib",
-    "two.files.diff.last.used.file": "D:/internship projects/prototype/src/views/tables/TableCollapsible.tsx",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.12.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.16.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/internship projects/prototype/src/views/tables/data&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;C:/Program Files/nodejs/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\internship projects\\prototype\\node_modules\\prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\internship projects\\prototype\\node_modules\\typescript\\lib&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;D:/internship projects/prototype/src/views/tables/TableCollapsible.tsx&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\internship projects\prototype\src\pages\supplier-list" />
-      <recent name="D:\internship projects\prototype\src\pages\inventory" />
-      <recent name="D:\internship projects\prototype\src\views\tables" />
+      <recent name="D:\internship projects\prototype\src\views\tables\data" />
       <recent name="D:\internship projects\prototype\src\pages\user-manager" />
-      <recent name="D:\internship projects\prototype\src\pages\system-config" />
+      <recent name="D:\internship projects\prototype\public\images\avatars" />
+      <recent name="D:\internship projects\prototype\src\pages" />
+      <recent name="D:\internship projects\prototype\src\views\account-settings" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\internship projects\prototype\src\pages" />
@@ -97,7 +116,13 @@
       <workItem from="1683678655901" duration="9818000" />
       <workItem from="1683690174453" duration="12047000" />
       <workItem from="1683762580124" duration="22596000" />
-      <workItem from="1683848339537" duration="7511000" />
+      <workItem from="1683848339537" duration="26709000" />
+      <workItem from="1683887433486" duration="674000" />
+      <workItem from="1684107868316" duration="22467000" />
+      <workItem from="1684189393110" duration="673000" />
+      <workItem from="1684190446761" duration="3677000" />
+      <workItem from="1684367428308" duration="18802000" />
+      <workItem from="1684454915657" duration="512000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683510087221</created>
@@ -169,7 +194,140 @@
       <option name="project" value="LOCAL" />
       <updated>1683854787124</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="resized logo">
+      <created>1683877320738</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683877320739</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added tabs to system-config page">
+      <created>1683877345319</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683877345319</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix table (work in progress)">
+      <created>1683877374888</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683877374888</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix table (work in progress)">
+      <created>1683877379730</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683877379730</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix unused imports">
+      <created>1683877489490</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683877489490</updated>
+    </task>
+    <task id="LOCAL-00016" summary="resized logo">
+      <created>1683877607775</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683877607775</updated>
+    </task>
+    <task id="LOCAL-00017" summary="resized logo">
+      <created>1683878248797</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683878248797</updated>
+    </task>
+    <task id="LOCAL-00018" summary="resized logo">
+      <created>1683878286207</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683878286207</updated>
+    </task>
+    <task id="LOCAL-00019" summary="adjusted error handling pages to match ui and return to dashboard">
+      <created>1683879237810</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683879237810</updated>
+    </task>
+    <task id="LOCAL-00020" summary="edited 404 message">
+      <created>1684131069769</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1684131069769</updated>
+    </task>
+    <task id="LOCAL-00021" summary="disabled '/' directory">
+      <created>1684131106986</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1684131106986</updated>
+    </task>
+    <task id="LOCAL-00022" summary="wip admin settings page">
+      <created>1684131148821</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1684131148821</updated>
+    </task>
+    <task id="LOCAL-00023" summary="testing tables for crud">
+      <created>1684131168470</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1684131168470</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fixed code errors">
+      <created>1684131211494</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1684131211494</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fixed code errors">
+      <created>1684131238608</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1684131238608</updated>
+    </task>
+    <task id="LOCAL-00026" summary="updated favicon">
+      <created>1684134461293</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1684134461295</updated>
+    </task>
+    <task id="LOCAL-00027" summary="adjusted dark mode color to make colors visible">
+      <created>1684136672702</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1684136672702</updated>
+    </task>
+    <task id="LOCAL-00028" summary="adjusted colors to make graph markers visible">
+      <created>1684136698696</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1684136698696</updated>
+    </task>
+    <task id="LOCAL-00029" summary="removed security tab; started building system tab in systemsettings.tsx">
+      <created>1684136748877</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684136748877</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +420,20 @@
     <MESSAGE value="resolved 'require' error in next.config.js." />
     <MESSAGE value="revamped summaryCard.tsx in dashboard." />
     <MESSAGE value="resolved unused imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolved unused imports" />
+    <MESSAGE value="added tabs to system-config page" />
+    <MESSAGE value="fix table (work in progress)" />
+    <MESSAGE value="fix unused imports" />
+    <MESSAGE value="resized logo" />
+    <MESSAGE value="adjusted error handling pages to match ui and return to dashboard" />
+    <MESSAGE value="edited 404 message" />
+    <MESSAGE value="disabled '/' directory" />
+    <MESSAGE value="wip admin settings page" />
+    <MESSAGE value="testing tables for crud" />
+    <MESSAGE value="fixed code errors" />
+    <MESSAGE value="updated favicon" />
+    <MESSAGE value="adjusted dark mode color to make colors visible" />
+    <MESSAGE value="adjusted colors to make graph markers visible" />
+    <MESSAGE value="removed security tab; started building system tab in systemsettings.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed security tab; started building system tab in systemsettings.tsx" />
   </component>
 </project>

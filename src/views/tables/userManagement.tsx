@@ -1,262 +1,282 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
-
-import Button from '@mui/material/Button'
-import AddIcon from '@mui/icons-material/Add'
-
-import EditIcon from '@mui/icons-material/Edit'
-import DeleteIcon from '@mui/icons-material/DeleteOutlined'
-import SaveIcon from '@mui/icons-material/Save'
-import CancelIcon from '@mui/icons-material/Close'
+import React, { useCallback, useMemo, useState } from 'react'
+import MaterialReactTable, {
+  type MaterialReactTableProps,
+  type MRT_Cell,
+  type MRT_ColumnDef,
+  type MRT_Row
+} from 'material-react-table'
 import {
-  GridRowsProp,
-  GridRowModesModel,
-  GridRowModes,
-  DataGridPro,
-  GridColDef,
-  GridRowParams,
-  MuiEvent,
-  GridToolbarContainer,
-  GridActionsCellItem,
-  GridEventListener,
-  GridRowId,
-  GridRowModel
-} from '@mui/x-data-grid-pro'
-import { randomCreatedDate, randomTraderName, randomUpdatedDate, randomId } from '@mui/x-data-grid-generator'
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+  MenuItem,
+  Stack,
+  TextField,
+  Tooltip
+} from '@mui/material'
+import { Delete, Edit } from '@mui/icons-material'
+import { data, states } from './data/userData'
 
-const initialRows: GridRowsProp = [
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 25,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 36,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 19,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 28,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 23,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 25,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 36,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 19,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 28,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 23,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate()
-  }
-]
-
-interface EditToolbarProps {
-  setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void
-  setRowModesModel: (newModel: (oldModel: GridRowModesModel) => GridRowModesModel) => void
+export type Person = {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+  age: number
+  state: string
 }
 
-function EditToolbar(props: EditToolbarProps) {
-  const { setRows, setRowModesModel } = props
+const UserManagementTable = () => {
+  const [createModalOpen, setCreateModalOpen] = useState(false)
+  const [tableData, setTableData] = useState<Person[]>(() => data)
+  const [validationErrors, setValidationErrors] = useState<{
+    [cellId: string]: string
+  }>({})
 
-  const handleClick = () => {
-    const id = randomId()
-    setRows(oldRows => [...oldRows, { id, name: '', age: '', isNew: true }])
-    setRowModesModel(oldModel => ({
-      ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' }
-    }))
+  const handleCreateNewRow = (values: Person) => {
+    tableData.push(values)
+    setTableData([...tableData])
   }
 
-  return (
-    <GridToolbarContainer>
-      <Button color='primary' startIcon={<AddIcon />} onClick={handleClick}>
-        Add New User
-      </Button>
-    </GridToolbarContainer>
-  )
-}
+  const handleSaveRowEdits: MaterialReactTableProps<Person>['onEditingRowSave'] = async ({
+    exitEditingMode,
+    row,
+    values
+  }) => {
+    if (!Object.keys(validationErrors).length) {
+      tableData[row.index] = values
 
-export default function FullFeaturedCrudGrid() {
-  const [rows, setRows] = React.useState(initialRows)
-  const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>({})
-
-  const handleRowEditStart = (params: GridRowParams, event: MuiEvent<React.SyntheticEvent>) => {
-    event.defaultMuiPrevented = true
-  }
-
-  const handleRowEditStop: GridEventListener<'rowEditStop'> = (params, event) => {
-    event.defaultMuiPrevented = true
-  }
-
-  const handleEditClick = (id: GridRowId) => () => {
-    setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } })
-  }
-
-  const handleSaveClick = (id: GridRowId) => () => {
-    setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } })
-  }
-
-  const handleDeleteClick = (id: GridRowId) => () => {
-    setRows(rows.filter(row => row.id !== id))
-  }
-
-  const handleCancelClick = (id: GridRowId) => () => {
-    setRowModesModel({
-      ...rowModesModel,
-      [id]: { mode: GridRowModes.View, ignoreModifications: true }
-    })
-
-    const editedRow = rows.find(row => row.id === id)
-    if (editedRow!.isNew) {
-      setRows(rows.filter(row => row.id !== id))
+      //send/receive api updates here, then refetch or update local table data for re-render
+      setTableData([...tableData])
+      exitEditingMode() //required to exit editing mode and close modal
     }
   }
 
-  const processRowUpdate = (newRow: GridRowModel) => {
-    const updatedRow = { ...newRow, isNew: false }
-    setRows(rows.map(row => (row.id === newRow.id ? updatedRow : row)))
-
-    return updatedRow
+  const handleCancelRowEdits = () => {
+    setValidationErrors({})
   }
 
-  const handleRowModesModelChange = (newRowModesModel: GridRowModesModel) => {
-    setRowModesModel(newRowModesModel)
-  }
-
-  const columns: GridColDef[] = [
-    { field: 'name', headerName: 'Name', maxWidth: 180, minWidth: 180, width: 180, editable: true },
-
-    {
-      field: 'dateCreated',
-      headerName: 'Date Created',
-      type: 'date',
-      width: 180,
-      maxWidth: 180,
-      minWidth: 180,
-      editable: true
-    },
-    {
-      field: 'lastLogin',
-      headerName: 'Last Login',
-      type: 'dateTime',
-      width: 830,
-
-      // maxWidth: 830,
-      // minWidth: 830,
-      editable: true
-    },
-    {
-      field: 'actions',
-      type: 'actions',
-      headerName: 'Actions',
-      width: 100,
-      cellClassName: 'actions',
-      getActions: ({ id }) => {
-        const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit
-
-        if (isInEditMode) {
-          return [
-            <GridActionsCellItem icon={<SaveIcon />} label='Save' onClick={handleSaveClick(id)} />,
-            <GridActionsCellItem
-              icon={<CancelIcon />}
-              label='Cancel'
-              className='textPrimary'
-              onClick={handleCancelClick(id)}
-              color='inherit'
-            />
-          ]
-        }
-
-        return [
-          <GridActionsCellItem
-            icon={<EditIcon />}
-            label='Edit'
-            className='textPrimary'
-            onClick={handleEditClick(id)}
-            color='inherit'
-          />,
-          <GridActionsCellItem icon={<DeleteIcon />} label='Delete' onClick={handleDeleteClick(id)} color='inherit' />
-        ]
+  const handleDeleteRow = useCallback(
+    (row: MRT_Row<Person>) => {
+      if (!confirm(`Are you sure you want to delete ${row.getValue('firstName')}`)) {
+        return
       }
-    }
-  ]
+
+      //send api delete request here, then refetch or update local table data for re-render
+      tableData.splice(row.index, 1)
+      setTableData([...tableData])
+    },
+    [tableData]
+  )
+
+  const getCommonEditTextFieldProps = useCallback(
+    (cell: MRT_Cell<Person>): MRT_ColumnDef<Person>['muiTableBodyCellEditTextFieldProps'] => {
+      return {
+        error: !!validationErrors[cell.id],
+        helperText: validationErrors[cell.id],
+        onBlur: event => {
+          const isValid =
+            cell.column.id === 'email'
+              ? validateEmail(event.target.value)
+              : cell.column.id === 'age'
+              ? validateAge(+event.target.value)
+              : validateRequired(event.target.value)
+          if (!isValid) {
+            //set validation error for cell if invalid
+            setValidationErrors({
+              ...validationErrors,
+              [cell.id]: `${cell.column.columnDef.header} is required`
+            })
+          } else {
+            //remove validation error for cell if valid
+            delete validationErrors[cell.id]
+            setValidationErrors({
+              ...validationErrors
+            })
+          }
+        }
+      }
+    },
+    [validationErrors]
+  )
+
+  const columns = useMemo<MRT_ColumnDef<Person>[]>(
+    () => [
+      {
+        accessorKey: 'id',
+        header: 'ID',
+        enableColumnOrdering: false,
+        enableEditing: false, //disable editing on this column
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'firstName',
+        header: 'First Name',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'lastName',
+        header: 'Last Name',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'email',
+        header: 'Email',
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+          type: 'email'
+        })
+      },
+      {
+        accessorKey: 'age',
+        header: 'Age',
+        size: 80,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+          type: 'number'
+        })
+      },
+
+      {
+        accessorKey: 'state',
+        header: 'State',
+        muiTableBodyCellEditTextFieldProps: {
+          select: true, //change to select for a dropdown
+          children: states.map(state => (
+            <MenuItem key={state} value={state}>
+              {state}
+            </MenuItem>
+          ))
+        }
+      }
+    ],
+    [getCommonEditTextFieldProps]
+  )
 
   return (
-    <Box
-      sx={{
-        height: 700,
-        width: '100%',
-        '& .actions': {
-          color: 'text.secondary'
-        },
-        '& .textPrimary': {
-          color: 'text.primary'
-        }
-      }}
-    >
-      <DataGridPro
-        rows={rows}
+    <>
+      <MaterialReactTable
+        muiTableContainerProps={{ sx: { height: '650px' } }}
+        displayColumnDefOptions={{
+          'mrt-row-actions': {
+            muiTableHeadCellProps: {
+              align: 'center'
+            },
+            size: 120
+          }
+        }}
         columns={columns}
-        editMode='row'
-        rowModesModel={rowModesModel}
-        onRowModesModelChange={handleRowModesModelChange}
-        onRowEditStart={handleRowEditStart}
-        onRowEditStop={handleRowEditStop}
-        processRowUpdate={processRowUpdate}
-        slots={{
-          toolbar: EditToolbar
-        }}
-        slotProps={{
-          toolbar: { setRows, setRowModesModel }
-        }}
+        data={tableData}
+        editingMode='modal' //default
+        enableColumnOrdering
+        enableEditing
+        onEditingRowSave={handleSaveRowEdits}
+        onEditingRowCancel={handleCancelRowEdits}
+        renderRowActions={({ row, table }) => (
+          <Box sx={{ display: 'flex', gap: '1rem' }}>
+            <Tooltip arrow placement='left' title='Edit'>
+              <IconButton onClick={() => table.setEditingRow(row)}>
+                <Edit />
+              </IconButton>
+            </Tooltip>
+            <Tooltip arrow placement='right' title='Delete'>
+              <IconButton onClick={() => handleDeleteRow(row)}>
+                <Delete />
+              </IconButton>
+            </Tooltip>
+          </Box>
+        )}
+        renderTopToolbarCustomActions={() => (
+          <Button color='primary' onClick={() => setCreateModalOpen(true)} variant='outlined'>
+            Create New Account
+          </Button>
+        )}
       />
-    </Box>
+      <CreateNewAccountModal
+        columns={columns}
+        open={createModalOpen}
+        onClose={() => setCreateModalOpen(false)}
+        onSubmit={handleCreateNewRow}
+      />
+    </>
   )
 }
+
+interface CreateModalProps {
+  columns: MRT_ColumnDef<Person>[]
+  onClose: () => void
+  onSubmit: (values: Person) => void
+  open: boolean
+}
+
+//example of creating a mui dialog modal for creating new rows
+export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }: CreateModalProps) => {
+  const [values, setValues] = useState<any>(() =>
+    columns.reduce((acc, column) => {
+      acc[column.accessorKey ?? ''] = ''
+
+      return acc
+    }, {} as any)
+  )
+
+  const handleSubmit = () => {
+    //put your validation logic here
+    onSubmit(values)
+    onClose()
+  }
+
+  return (
+    <Dialog open={open}>
+      <DialogTitle>Create New Account</DialogTitle>
+      <DialogContent>
+        <form onSubmit={e => e.preventDefault()}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem'
+            }}
+          >
+            {columns.map(column => (
+              <TextField
+                key={column.accessorKey}
+                label={column.header}
+                name={column.accessorKey}
+                onChange={e => setValues({ ...values, [e.target.name]: e.target.value })}
+              />
+            ))}
+          </Stack>
+        </form>
+      </DialogContent>
+      <DialogActions sx={{ p: '1.25rem' }}>
+        <Button onClick={onClose}>Cancel</Button>
+        <Button color='primary' onClick={handleSubmit} variant='contained'>
+          Create New Account
+        </Button>
+      </DialogActions>
+    </Dialog>
+  )
+}
+
+const validateRequired = (value: string) => !!value.length
+const validateEmail = (email: string) =>
+  !!email.length &&
+  email
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )
+const validateAge = (age: number) => age >= 18 && age <= 50
+
+export default UserManagementTable
