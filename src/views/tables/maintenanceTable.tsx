@@ -20,47 +20,39 @@ import {
   Tooltip
 } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
-import { data } from './data/userData'
+import { maintenancedata } from './data/maintenanceRecords'
 import {Info} from "@material-ui/icons";
 
-export type Person = {
-  id: string
-  firstName: string
-  lastName: string
-  middleName: string
-  programId: string
-  roleId: string
-  permissionId: string
-  contactNo: string
-  mobileNo: string
-  email: string
-  position: string
-  username: string
-  password: string
+export type MaintenanceRecord = {
+  id:string
+  equipment_id:string
+  date_schedule:string
+  description:string
+  user_incharge:string
   is_void: boolean
-  createdBy: string
-  modifiedBy: string
-  notes: string
+  created_by:string
+  modified_by:string
+  notes:string
 }
 
-const UserManagementTable = () => {
+const MaintenanceTable = () => {
 
   const [createModalOpen, setCreateModalOpen] = useState(false)
-  const [tableData, setTableData] = useState<Person[]>(() => data)
+  const [tableData, setTableData] = useState<MaintenanceRecord[]>(() => maintenancedata)
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string
   }>({})
 
-  const handleCreateNewRow = (values: Person) => {
+  const handleCreateNewRow = (values: MaintenanceRecord) => {
     tableData.push(values)
     setTableData([...tableData])
   }
 
-  const handleSaveRowEdits: MaterialReactTableProps<Person>['onEditingRowSave'] = async ({
-    exitEditingMode,
-    row,
-    values
-  }) => {
+  const handleSaveRowEdits: MaterialReactTableProps<MaintenanceRecord>['onEditingRowSave'] = async ({
+                                                                                           exitEditingMode,
+                                                                                           row,
+                                                                                           values
+                                                                                         }) => {
     if (!Object.keys(validationErrors).length) {
       tableData[row.index] = values
 
@@ -75,8 +67,8 @@ const UserManagementTable = () => {
   }
 
   const handleDeleteRow = useCallback(
-    (row: MRT_Row<Person>) => {
-      if (!confirm(`Are you sure you want to delete ${row.getValue('id')}`)) {
+    (row: MRT_Row<MaintenanceRecord>) => {
+      if (!confirm(`Are you sure you want to delete ${row.getValue('firstName')}`)) {
         return
       }
 
@@ -88,7 +80,7 @@ const UserManagementTable = () => {
   )
 
   const getCommonEditTextFieldProps = useCallback(
-    (cell: MRT_Cell<Person>): MRT_ColumnDef<Person>['muiTableBodyCellEditTextFieldProps'] => {
+    (cell: MRT_Cell<MaintenanceRecord>): MRT_ColumnDef<MaintenanceRecord>['muiTableBodyCellEditTextFieldProps'] => {
       return {
         error: !!validationErrors[cell.id],
         helperText: validationErrors[cell.id],
@@ -97,8 +89,8 @@ const UserManagementTable = () => {
             cell.column.id === 'email'
               ? validateEmail(event.target.value)
               : cell.column.id === 'age'
-              ? validateAge(+event.target.value)
-              : validateRequired(event.target.value)
+                ? validateAge(+event.target.value)
+                : validateRequired(event.target.value)
           if (!isValid) {
             //set validation error for cell if invalid
             setValidationErrors({
@@ -118,7 +110,7 @@ const UserManagementTable = () => {
     [validationErrors]
   )
 
-  const columns = useMemo<MRT_ColumnDef<Person>[]>(
+  const columns = useMemo<MRT_ColumnDef<MaintenanceRecord>[]>(
     () => [
       {
         accessorKey: 'id',
@@ -129,8 +121,8 @@ const UserManagementTable = () => {
         size: 80
       },
       {
-        accessorKey: 'username',
-        header: 'username',
+        accessorKey: 'equipment_id',
+        header: 'Equipment ID',
         enableColumnOrdering: false,
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -138,24 +130,24 @@ const UserManagementTable = () => {
         })
       },
       {
-        accessorKey: 'password',
-        header: 'password',
+        accessorKey: 'date_schedule',
+        header: 'Scheduled Date',
         enableColumnOrdering: false,
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-
+          ...getCommonEditTextFieldProps(cell)
         })
       },
       {
-        accessorKey: 'email',
-        header: 'Email',
+        accessorKey: 'user_incharge',
+        header: 'User',
         enableColumnOrdering: false,
+        size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'email'
+          ...getCommonEditTextFieldProps(cell)
         })
       }
+
     ],
     [getCommonEditTextFieldProps]
   )
@@ -163,7 +155,7 @@ const UserManagementTable = () => {
   return (
     <>
       <MaterialReactTable
-        muiTableContainerProps={{ sx: { height: '600px' } }}
+        muiTableContainerProps={{ sx: { height: '550px' } }}
         displayColumnDefOptions={{
           'mrt-row-actions': {
             muiTableHeadCellProps: {
@@ -200,11 +192,11 @@ const UserManagementTable = () => {
         )}
         renderTopToolbarCustomActions={() => (
           <Button color='primary' onClick={() => setCreateModalOpen(true)} variant='outlined'>
-            Create New Account
+            Create New Schedule
           </Button>
         )}
       />
-      <CreateNewAccountModal
+      <CreateNewScheduleModal
         columns={columns}
         open={createModalOpen}
         onClose={() => setCreateModalOpen(false)}
@@ -215,14 +207,14 @@ const UserManagementTable = () => {
 }
 
 interface CreateModalProps {
-  columns: MRT_ColumnDef<Person>[]
+  columns: MRT_ColumnDef<MaintenanceRecord>[]
   onClose: () => void
-  onSubmit: (values: Person) => void
+  onSubmit: (values: MaintenanceRecord) => void
   open: boolean
 }
 
 //example of creating a mui dialog modal for creating new rows
-export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }: CreateModalProps) => {
+export const CreateNewScheduleModal = ({ open, columns, onClose, onSubmit }: CreateModalProps) => {
   const [values, setValues] = useState<any>(() =>
     columns.reduce((acc, column) => {
       acc[column.accessorKey ?? ''] = ''
@@ -239,7 +231,7 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }: Crea
 
   return (
     <Dialog open={open}>
-      <DialogTitle>Create New Account</DialogTitle>
+      <DialogTitle>Create Schedule</DialogTitle>
       <DialogContent>
         <form onSubmit={e => e.preventDefault()}>
           <Stack
@@ -263,7 +255,7 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }: Crea
       <DialogActions sx={{ p: '1.25rem' }}>
         <Button onClick={onClose}>Cancel</Button>
         <Button color='primary' onClick={handleSubmit} variant='contained'>
-          Create New Account
+          Create New Schedule
         </Button>
       </DialogActions>
     </Dialog>
@@ -280,4 +272,4 @@ const validateEmail = (email: string) =>
     )
 const validateAge = (age: number) => age >= 18 && age <= 50
 
-export default UserManagementTable
+export default MaintenanceTable

@@ -20,43 +20,37 @@ import {
   Tooltip
 } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
-import { data } from './data/userData'
+import { supplierdata } from './data/supplierData'
 import {Info} from "@material-ui/icons";
 
-export type Person = {
-  id: string
-  firstName: string
-  lastName: string
-  middleName: string
-  programId: string
-  roleId: string
-  permissionId: string
-  contactNo: string
-  mobileNo: string
-  email: string
-  position: string
-  username: string
-  password: string
-  is_void: boolean
-  createdBy: string
-  modifiedBy: string
-  notes: string
+export type Supplier = {
+
+  id:string
+  name:string
+  address:string
+  contact_no:string
+  mobile_no:string
+  is_void:boolean
+  created_by:string
+  modified_by:string
+  notes:string
+
 }
 
 const UserManagementTable = () => {
 
   const [createModalOpen, setCreateModalOpen] = useState(false)
-  const [tableData, setTableData] = useState<Person[]>(() => data)
+  const [tableData, setTableData] = useState<Supplier[]>(() => supplierdata)
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string
   }>({})
 
-  const handleCreateNewRow = (values: Person) => {
+  const handleCreateNewRow = (values: Supplier) => {
     tableData.push(values)
     setTableData([...tableData])
   }
 
-  const handleSaveRowEdits: MaterialReactTableProps<Person>['onEditingRowSave'] = async ({
+  const handleSaveRowEdits: MaterialReactTableProps<Supplier>['onEditingRowSave'] = async ({
     exitEditingMode,
     row,
     values
@@ -75,8 +69,8 @@ const UserManagementTable = () => {
   }
 
   const handleDeleteRow = useCallback(
-    (row: MRT_Row<Person>) => {
-      if (!confirm(`Are you sure you want to delete ${row.getValue('id')}`)) {
+    (row: MRT_Row<Supplier>) => {
+      if (!confirm(`Are you sure you want to delete ${row.getValue('name')}`)) {
         return
       }
 
@@ -88,7 +82,7 @@ const UserManagementTable = () => {
   )
 
   const getCommonEditTextFieldProps = useCallback(
-    (cell: MRT_Cell<Person>): MRT_ColumnDef<Person>['muiTableBodyCellEditTextFieldProps'] => {
+    (cell: MRT_Cell<Supplier>): MRT_ColumnDef<Supplier>['muiTableBodyCellEditTextFieldProps'] => {
       return {
         error: !!validationErrors[cell.id],
         helperText: validationErrors[cell.id],
@@ -118,7 +112,7 @@ const UserManagementTable = () => {
     [validationErrors]
   )
 
-  const columns = useMemo<MRT_ColumnDef<Person>[]>(
+  const columns = useMemo<MRT_ColumnDef<Supplier>[]>(
     () => [
       {
         accessorKey: 'id',
@@ -129,8 +123,8 @@ const UserManagementTable = () => {
         size: 80
       },
       {
-        accessorKey: 'username',
-        header: 'username',
+        accessorKey: 'name',
+        header: 'Name',
         enableColumnOrdering: false,
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -138,22 +132,29 @@ const UserManagementTable = () => {
         })
       },
       {
-        accessorKey: 'password',
-        header: 'password',
+        accessorKey: 'address',
+        header: 'Address',
         enableColumnOrdering: false,
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-
+          ...getCommonEditTextFieldProps(cell)
         })
       },
       {
-        accessorKey: 'email',
-        header: 'Email',
+        accessorKey: 'contact_no',
+        header: 'Contact Number',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'mobile_no',
+        header: 'Mobile Number',
         enableColumnOrdering: false,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
-          type: 'email'
         })
       }
     ],
@@ -200,7 +201,7 @@ const UserManagementTable = () => {
         )}
         renderTopToolbarCustomActions={() => (
           <Button color='primary' onClick={() => setCreateModalOpen(true)} variant='outlined'>
-            Create New Account
+            Add New Supplier
           </Button>
         )}
       />
@@ -215,9 +216,9 @@ const UserManagementTable = () => {
 }
 
 interface CreateModalProps {
-  columns: MRT_ColumnDef<Person>[]
+  columns: MRT_ColumnDef<Supplier>[]
   onClose: () => void
-  onSubmit: (values: Person) => void
+  onSubmit: (values: Supplier) => void
   open: boolean
 }
 
@@ -239,7 +240,7 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }: Crea
 
   return (
     <Dialog open={open}>
-      <DialogTitle>Create New Account</DialogTitle>
+      <DialogTitle>Add New Supplier</DialogTitle>
       <DialogContent>
         <form onSubmit={e => e.preventDefault()}>
           <Stack
@@ -263,7 +264,7 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }: Crea
       <DialogActions sx={{ p: '1.25rem' }}>
         <Button onClick={onClose}>Cancel</Button>
         <Button color='primary' onClick={handleSubmit} variant='contained'>
-          Create New Account
+          Add New Supplier
         </Button>
       </DialogActions>
     </Dialog>

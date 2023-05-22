@@ -1,23 +1,96 @@
+// ** React Imports
+import { SyntheticEvent, useState } from 'react'
+
 // ** MUI Imports
-import Grid from '@mui/material/Grid'
-import Card from "@mui/material/Card";
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import TabList from '@mui/lab/TabList'
+import TabPanel from '@mui/lab/TabPanel'
+import TabContext from '@mui/lab/TabContext'
+import { styled } from '@mui/material/styles'
+import MuiTab, { TabProps } from '@mui/material/Tab'
+
+// ** Icons Imports
+// import AccountOutline from 'mdi-material-ui/AccountOutline'
+// import ConstructionIcon from '@mui/icons-material/Construction';
+
+// ** Demo Tabs Imports
+import EquipmentTab from '../../views/inventory/equipment-browser'
+import MaintenanceTab from '../../views/inventory/maintenance-browser'
+
+// import TabSecurity from 'src/views/account-settings/TabSecurity'
+
+// ** Third Party Styles Imports
+import 'react-datepicker/dist/react-datepicker.css'
 import CardHeader from "@mui/material/CardHeader";
 
-import InventoryTable from '../../views/tables/inventory'
+const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    minWidth: 100
+  },
+  [theme.breakpoints.down('sm')]: {
+    minWidth: 67
+  }
+}))
 
+const TabName = styled('span')(({ theme }) => ({
+  lineHeight: 1.71,
+  fontSize: '0.875rem',
+  marginLeft: theme.spacing(2.4),
+  [theme.breakpoints.down('md')]: {
+    display: 'none'
+  }
+}))
 
-const Inventory = () => {
+const AccountSettings = () => {
+  // ** State
+  const [value, setValue] = useState<string>('equipment')
+
+  const handleChange = (event: SyntheticEvent, newValue: string) => {
+    setValue(newValue)
+  }
+
   return (
+    <Card>
+      <CardHeader title='Inventory' titleTypographyProps={{ variant: 'h6' }} />
+      <TabContext value={value}>
+        <TabList
+          onChange={handleChange}
+          aria-label='inventory tabs'
+          sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
+        >
+          <Tab
+            value='equipment'
+            label={
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <TabName>Equipment</TabName>
+              </Box>
+            }
+          />
+          <Tab
+            value='maintenance'
+            label={
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <TabName>Maintenance</TabName>
+              </Box>
+            }
+          />
 
+        </TabList>
 
-    <Grid item xs={12}>
-      <Card>
-        <CardHeader title='Inventory' titleTypographyProps={{ variant: 'h6' }} />
-        <InventoryTable />
-      </Card>
-    </Grid>
+        <TabPanel sx={{ p: 0 }} value='equipment'>
+          <EquipmentTab />
+        </TabPanel>
+        <TabPanel sx={{ p: 0 }} value='maintenance'>
+          <MaintenanceTab />
+        </TabPanel>
+        {/*<TabPanel sx={{ p: 0 }} value='security'>*/}
+        {/*  <TabSecurity />*/}
+        {/*</TabPanel>*/}
 
+      </TabContext>
+    </Card>
   )
 }
 
-export default Inventory
+export default AccountSettings

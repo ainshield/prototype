@@ -15,7 +15,9 @@ import CardContent from '@mui/material/CardContent'
 import DotsVertical from 'mdi-material-ui/DotsVertical'
 import CellphoneLink from 'mdi-material-ui/CellphoneLink'
 import AccountOutline from 'mdi-material-ui/AccountOutline'
-import ConstructionIcon from '@mui/icons-material/Construction'
+
+// import ConstructionIcon from '@mui/icons-material/Construction'
+import GarageIcon from '@mui/icons-material/Garage';
 
 // ** Types
 import { ThemeColor } from 'src/@core/layouts/types'
@@ -29,21 +31,21 @@ interface DataType {
 
 const salesData: DataType[] = [
   {
-    stats: '5',
-    title: 'Ongoing',
+    stats: '0',
+    title: 'Vehicles',
     color: 'primary',
-    icon: <ConstructionIcon sx={{ fontSize: '1.75rem' }} />
+    icon: <GarageIcon sx={{ fontSize: '1.75rem' }} />
   },
   {
-    stats: '12.5k',
-    title: 'Resolved',
-    color: 'success',
+    stats: '3',
+    title: 'Devices',
+    color: 'info',
     icon: <AccountOutline sx={{ fontSize: '1.75rem' }} />
   },
   {
-    stats: '1.54k',
+    stats: '5',
     color: 'warning',
-    title: 'Pending',
+    title: 'Tools',
     icon: <CellphoneLink sx={{ fontSize: '1.75rem' }} />
   }
 
@@ -75,11 +77,11 @@ const renderStats = () => {
   ))
 }
 
-const SummaryCard = () => {
+const AnnualEquipmentCount = () => {
   return (
     <Card>
       <CardHeader
-        title='Summary'
+        title='Aquired Equipment'
         action={
           <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
             <DotsVertical />
@@ -87,8 +89,8 @@ const SummaryCard = () => {
         }
         subheader={
           <Typography variant='body2'>
-            <Box component='span' sx={{ fontWeight: 600, color: 'text.primary' }}>
-              This week's summary
+            <Box component='span' sx={{ fontWeight: 400, color: 'text.primary' }}>
+              this year:
             </Box>{' '}
           </Typography>
         }
@@ -109,4 +111,4 @@ const SummaryCard = () => {
   )
 }
 
-export default SummaryCard
+export default AnnualEquipmentCount

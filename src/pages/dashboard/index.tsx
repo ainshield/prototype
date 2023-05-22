@@ -15,8 +15,8 @@ import ApexChartWrapper from '../../@core/styles/libs/react-apexcharts'
 
 // ** Demo Components Imports
 import Table from '../../views/dashboard/Table'
-import SummaryCard from '../../views/dashboard/summaryCard'
-import WeeklyOverview from '../../views/dashboard/WeeklyOverview'
+import EquipmentCount from '../../views/dashboard/equipmentCount'
+import AnnualEquipmentCount from '../../views/dashboard/annualEquipmentCount'
 
 
 const Dashboard = () => {
@@ -27,15 +27,14 @@ const Dashboard = () => {
         {/*  <Trophy />*/}
         {/*</Grid>*/}
         <Grid item xs={8} md={6}>
-          <SummaryCard />
+          <EquipmentCount />
         </Grid>
         <Grid item xs={8} md={6}>
-          {/*<SummaryCard />*/}
+          <AnnualEquipmentCount />
         </Grid>
-        <Grid item xs={12}>
-          <WeeklyOverview />
+        <Grid item xs={8} md={6}>
+          {/*<EquipmentCount />*/}
         </Grid>
-
         <Grid item xs={12}>
           <Table />
         </Grid>
