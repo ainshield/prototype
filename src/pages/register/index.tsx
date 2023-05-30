@@ -3,6 +3,7 @@ import { useState, Fragment, ChangeEvent, MouseEvent, ReactNode } from 'react'
 
 // ** Next Imports
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 // ** MUI Components
 import Box from '@mui/material/Box'
@@ -20,6 +21,7 @@ import { styled, useTheme } from '@mui/material/styles'
 import MuiCard, { CardProps } from '@mui/material/Card'
 import InputAdornment from '@mui/material/InputAdornment'
 import MuiFormControlLabel, { FormControlLabelProps } from '@mui/material/FormControlLabel'
+
 
 // ** Icons Imports
 import Google from 'mdi-material-ui/Google'
@@ -64,6 +66,8 @@ const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ t
 }))
 
 const RegisterPage = () => {
+
+  const router = useRouter()
   // ** States
   const [values, setValues] = useState<State>({
     password: '',
@@ -204,48 +208,54 @@ const RegisterPage = () => {
                 </Fragment>
               }
             />
-            <Button fullWidth size='large' type='submit' variant='contained' sx={{ marginBottom: 7 }}>
+            <Button
+              fullWidth size='large'
+              type='submit'
+              variant='contained'
+              sx={{ marginBottom: 7 }}
+              onClick={() => router.push('/dashboard')}
+            >
               Sign up
             </Button>
-            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <Typography variant='body2' sx={{ marginRight: 2 }}>
-                Already have an account?
-              </Typography>
-              <Typography variant='body2'>
-                <Link passHref href='/login'>
-                  <LinkStyled>Sign in instead</LinkStyled>
-                </Link>
-              </Typography>
-            </Box>
-            <Divider sx={{ my: 5 }}>or</Divider>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Link href='/' passHref>
-                <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>
-                  <Facebook sx={{ color: '#497ce2' }} />
-                </IconButton>
-              </Link>
-              <Link href='/' passHref>
-                <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>
-                  <Twitter sx={{ color: '#1da1f2' }} />
-                </IconButton>
-              </Link>
-              <Link href='/' passHref>
-                <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>
-                  <Github
-                    sx={{ color: theme => (theme.palette.mode === 'light' ? '#272727' : theme.palette.grey[300]) }}
-                  />
-                </IconButton>
-              </Link>
-              <Link href='/' passHref>
-                <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>
-                  <Google sx={{ color: '#db4437' }} />
-                </IconButton>
-              </Link>
-            </Box>
+            {/*<Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>*/}
+            {/*  <Typography variant='body2' sx={{ marginRight: 2 }}>*/}
+            {/*    Already have an account?*/}
+            {/*  </Typography>*/}
+            {/*  <Typography variant='body2'>*/}
+            {/*    <Link passHref href='/login'>*/}
+            {/*      <LinkStyled>Sign in instead</LinkStyled>*/}
+            {/*    </Link>*/}
+            {/*  </Typography>*/}
+            {/*</Box>*/}
+            {/*<Divider sx={{ my: 5 }}>or</Divider>*/}
+            {/*<Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>*/}
+            {/*  <Link href='/' passHref>*/}
+            {/*    <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>*/}
+            {/*      <Facebook sx={{ color: '#497ce2' }} />*/}
+            {/*    </IconButton>*/}
+            {/*  </Link>*/}
+            {/*  <Link href='/' passHref>*/}
+            {/*    <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>*/}
+            {/*      <Twitter sx={{ color: '#1da1f2' }} />*/}
+            {/*    </IconButton>*/}
+            {/*  </Link>*/}
+            {/*  <Link href='/' passHref>*/}
+            {/*    <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>*/}
+            {/*      <Github*/}
+            {/*        sx={{ color: theme => (theme.palette.mode === 'light' ? '#272727' : theme.palette.grey[300]) }}*/}
+            {/*      />*/}
+            {/*    </IconButton>*/}
+            {/*  </Link>*/}
+            {/*  <Link href='/' passHref>*/}
+            {/*    <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>*/}
+            {/*      <Google sx={{ color: '#db4437' }} />*/}
+            {/*    </IconButton>*/}
+            {/*  </Link>*/}
+            {/*</Box>*/}
           </form>
         </CardContent>
       </Card>
-      <FooterIllustrationsV1 />
+
     </Box>
   )
 }
