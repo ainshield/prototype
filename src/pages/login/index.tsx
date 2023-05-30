@@ -167,31 +167,31 @@ const LoginPage = () => {
                 </Link>
               </Typography>
             </Box>
-            <Divider sx={{ my: 5 }}>or</Divider>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Link href='/' passHref>
-                <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>
-                  <Facebook sx={{ color: '#497ce2' }} />
-                </IconButton>
-              </Link>
-              <Link href='/' passHref>
-                <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>
-                  <Twitter sx={{ color: '#1da1f2' }} />
-                </IconButton>
-              </Link>
-              <Link href='/' passHref>
-                <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>
-                  <Github
-                    sx={{ color: theme => (theme.palette.mode === 'light' ? '#272727' : theme.palette.grey[300]) }}
-                  />
-                </IconButton>
-              </Link>
-              <Link href='/' passHref>
-                <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>
-                  <Google sx={{ color: '#db4437' }} />
-                </IconButton>
-              </Link>
-            </Box>
+            {/*<Divider sx={{ my: 5 }}>or</Divider>*/}
+            {/*<Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>*/}
+            {/*  <Link href='/' passHref>*/}
+            {/*    <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>*/}
+            {/*      <Facebook sx={{ color: '#497ce2' }} />*/}
+            {/*    </IconButton>*/}
+            {/*  </Link>*/}
+            {/*  <Link href='/' passHref>*/}
+            {/*    <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>*/}
+            {/*      <Twitter sx={{ color: '#1da1f2' }} />*/}
+            {/*    </IconButton>*/}
+            {/*  </Link>*/}
+            {/*  <Link href='/' passHref>*/}
+            {/*    <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>*/}
+            {/*      <Github*/}
+            {/*        sx={{ color: theme => (theme.palette.mode === 'light' ? '#272727' : theme.palette.grey[300]) }}*/}
+            {/*      />*/}
+            {/*    </IconButton>*/}
+            {/*  </Link>*/}
+            {/*  <Link href='/' passHref>*/}
+            {/*    <IconButton component='a' onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}>*/}
+            {/*      <Google sx={{ color: '#db4437' }} />*/}
+            {/*    </IconButton>*/}
+            {/*  </Link>*/}
+            {/*</Box>*/}
           </form>
         </CardContent>
       </Card>

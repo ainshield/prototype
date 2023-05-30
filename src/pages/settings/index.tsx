@@ -10,19 +10,16 @@ import TabContext from '@mui/lab/TabContext'
 import { styled } from '@mui/material/styles'
 import MuiTab, { TabProps } from '@mui/material/Tab'
 
-// ** Icons Imports
-import AccountOutline from 'mdi-material-ui/AccountOutline'
-import LockOpenOutline from 'mdi-material-ui/LockOpenOutline'
-import InformationOutline from 'mdi-material-ui/InformationOutline'
 
 // ** Demo Tabs Imports
-import SystemSettingsTab from 'src/views/account-settings/systemsettings'
-import InfoTab from '../../views/account-settings/about'
+import ProgramSettingsTab from '../../views/settings/program'
+import InfoTab from '../../views/settings/about'
+import EquipmentTab from '../../views/settings/equipment'
 
-// import TabSecurity from 'src/views/account-settings/TabSecurity'
 
 // ** Third Party Styles Imports
 import 'react-datepicker/dist/react-datepicker.css'
+import CardHeader from "@mui/material/CardHeader";
 
 const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -52,35 +49,33 @@ const AccountSettings = () => {
 
   return (
     <Card>
+      <CardHeader title='Settings' titleTypographyProps={{ variant: 'h6' }} />
       <TabContext value={value}>
         <TabList
           onChange={handleChange}
-          aria-label='account-settings tabs'
+          aria-label='settings tabs'
           sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
         >
           <Tab
             value='system'
             label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <AccountOutline />
-                <TabName>System</TabName>
+                <TabName>Program</TabName>
               </Box>
             }
           />
-          {/*<Tab*/}
-          {/*  value='security'*/}
-          {/*  label={*/}
-          {/*    <Box sx={{ display: 'flex', alignItems: 'center' }}>*/}
-          {/*      <LockOpenOutline />*/}
-          {/*      <TabName>Security</TabName>*/}
-          {/*    </Box>*/}
-          {/*  }*/}
-          {/*/>*/}
+          <Tab
+            value='security'
+            label={
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <TabName>Equipment Category</TabName>
+              </Box>
+            }
+          />
           <Tab
             value='about'
             label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <InformationOutline />
                 <TabName>About</TabName>
               </Box>
             }
@@ -88,11 +83,11 @@ const AccountSettings = () => {
         </TabList>
 
         <TabPanel sx={{ p: 0 }} value='system'>
-          <SystemSettingsTab />
+          <ProgramSettingsTab />
         </TabPanel>
-        {/*<TabPanel sx={{ p: 0 }} value='security'>*/}
-        {/*  <TabSecurity />*/}
-        {/*</TabPanel>*/}
+        <TabPanel sx={{ p: 0 }} value='security'>
+          <EquipmentTab />
+        </TabPanel>
         <TabPanel sx={{ p: 0 }} value='about'>
           <InfoTab />
         </TabPanel>

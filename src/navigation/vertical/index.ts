@@ -45,20 +45,15 @@ const navigation = (): VerticalNavItemsType => {
     },
 
     {
-      title: 'Profile Management',
+      title: 'Profile',
       icon: PersonIcon,
-      path: '/profile-manager'
+      path: '/profile'
     },
 
     {
       sectionTitle: 'Administrator Panel'
     },
 
-    // {
-    //   title:'Inventory',
-    //
-    //   path:'/'
-    // },
 
     {
       title: 'User Management',
@@ -66,9 +61,9 @@ const navigation = (): VerticalNavItemsType => {
       path: '/user-manager'
     },
     {
-      title: 'System Configuration',
+      title: 'Settings',
       icon: SettingsIcon,
-      path: '/system-config'
+      path: '/settings'
     }
   ]
 }

@@ -24,6 +24,8 @@ import Button, { ButtonProps } from '@mui/material/Button'
 // ** Icons Imports
 // import Close from 'mdi-material-ui/Close'
 
+import EquipmentSettingsTable from 'src/views/settings/config-tables/equipment.tsx'
+
 const ImgStyled = styled('img')(({ theme }) => ({
   width: 120,
   height: 120,
@@ -48,7 +50,7 @@ const ResetButtonStyled = styled(Button)<ButtonProps>(({ theme }) => ({
   }
 }))
 
-const SystemSettingsTab = () => {
+const EquipmentTab = () => {
   // ** State
   const [openAlert, setOpenAlert] = useState<boolean>(true)
   const [imgSrc, setImgSrc] = useState<string>('/images/avatars/1.png')
@@ -65,6 +67,7 @@ const SystemSettingsTab = () => {
 
   return (
     <CardContent>
+      <EquipmentSettingsTable />
       <form>
         <Grid container spacing={7}>
           <Grid item xs={12} sx={{ marginTop: 4.8, marginBottom: 3 }}></Grid>
@@ -82,4 +85,4 @@ const SystemSettingsTab = () => {
   )
 }
 
-export default SystemSettingsTab
+export default EquipmentTab
