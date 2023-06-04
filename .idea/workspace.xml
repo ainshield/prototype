@@ -4,19 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="fixed dashboard; implemented crud tables in inventory, supplier and user management pages">
-      <change afterPath="$PROJECT_DIR$/src/views/settings/config-tables/data/equipmentdata.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/settings/config-tables/data/programdata.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/settings/config-tables/equipment.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/settings/config-tables/program.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/settings/program.tsx" afterDir="false" />
+    <list default="true" id="53e75465-0e05-4c0d-847a-41d739253a28" name="Changes" comment="fixed sign up button not redirecting to dashboard">
+      <change afterPath="$PROJECT_DIR$/src/pages/test-table/modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/tables/modals/usermodal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/vertical/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/vertical/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/profile-manager/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/profile/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/system-config/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/settings/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/account-settings/about.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/settings/about.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/account-settings/systemsettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/settings/equipment.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/test-table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/test-table/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/test-table/makeData.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/dashboard/Table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/dashboard/Table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/settings/config-tables/data/equipmentdata.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/settings/config-tables/data/equipmentdata.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/settings/config-tables/data/programdata.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/settings/config-tables/data/programdata.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/settings/config-tables/equipment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/settings/config-tables/equipment.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/settings/config-tables/program.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/settings/config-tables/program.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/data/equipmentData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/data/equipmentData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/data/maintenanceRecords.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/data/maintenanceData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/data/supplierData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/data/supplierData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/data/userData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/data/userData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/equipmentTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/equipmentTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/maintenanceTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/maintenanceTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/supplierTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/supplierTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/tables/userManagement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,40 +57,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "18.12.1",
-    "javascript.nodejs.core.library.typings.version": "18.16.8",
-    "last_opened_file_path": "D:/internship projects/prototype/src/views/settings/config-tables/data",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "C:/Program Files/nodejs/node",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "D:\\internship projects\\prototype\\node_modules\\prettier",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "ts.external.directory.path": "D:\\internship projects\\prototype\\node_modules\\typescript\\lib",
-    "two.files.diff.last.used.file": "D:/internship projects/prototype/src/views/tables/TableCollapsible.tsx",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.12.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.16.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/internship projects/prototype/src/views/tables/modals&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;C:/Program Files/nodejs/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\internship projects\\prototype\\node_modules\\prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\internship projects\\prototype\\node_modules\\typescript\\lib&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;D:/internship projects/prototype/src/views/tables/TableCollapsible.tsx&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\internship projects\prototype\src\views\tables\modals" />
       <recent name="D:\internship projects\prototype\src\views\settings\config-tables\data" />
       <recent name="D:\internship projects\prototype\src\views\settings\config-tables" />
       <recent name="D:\internship projects\prototype\src\views\settings" />
       <recent name="D:\internship projects\prototype\src\views\tables\data" />
-      <recent name="D:\internship projects\prototype\src\views\tables" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\internship projects\prototype\src\views\settings" />
@@ -127,7 +136,11 @@
       <workItem from="1684964239566" duration="596000" />
       <workItem from="1685266898665" duration="4725000" />
       <workItem from="1685321279101" duration="18971000" />
-      <workItem from="1685404347136" duration="4330000" />
+      <workItem from="1685404347136" duration="22390000" />
+      <workItem from="1685444259686" duration="4287000" />
+      <workItem from="1685489737915" duration="26200000" />
+      <workItem from="1685534556436" duration="15042000" />
+      <workItem from="1685575468787" duration="12073000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1683510087221</created>
@@ -346,7 +359,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684737617229</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="fixed settings page; implemented settings crud tables">
+      <created>1685409324233</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1685409324233</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fixed sign up button not redirecting to dashboard">
+      <created>1685431580982</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1685431580982</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
     <MESSAGE value="fix table data" />
     <MESSAGE value="experiment userManagement.tsx tabledata" />
     <MESSAGE value="update user-management table to crud table" />
@@ -455,15 +481,33 @@
     <MESSAGE value="removed security tab; started building system tab in systemsettings.tsx" />
     <MESSAGE value="fixed appbar, removed search bar in app bar. implemented modals in crud table" />
     <MESSAGE value="fixed dashboard; implemented crud tables in inventory, supplier and user management pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed dashboard; implemented crud tables in inventory, supplier and user management pages" />
+    <MESSAGE value="fixed settings page; implemented settings crud tables" />
+    <MESSAGE value="fixed sign up button not redirecting to dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed sign up button not redirecting to dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/views/settings/config-tables/data/equipmentdata.ts</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/views/tables/data/userData.ts</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/tables/data/userData.ts</url>
+          <line>10</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/tables/supplierTable.tsx</url>
+          <line>216</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/tables/data/equipmentData.ts</url>
+          <line>17</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

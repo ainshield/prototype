@@ -4,28 +4,28 @@ import { Equipment } from '../equipment'
 export const data: Equipment[] = [
 
   {
-    id: '624741297',
+    id: '1',
     name: 'vehicle',
     description: 'lorem ipsum',
-    is_void: false,
+    is_void: 'false',
     created_by: 'Jane Doe',
     modified_by: 'John Doe',
     notes: 'lorem ipsum'
   },
   {
-    id: '512497202',
+    id: '2',
     name: 'device',
     description: 'lorem ipsum',
-    is_void: false,
+    is_void: 'false',
     created_by: 'Jane Doe',
     modified_by: 'John Doe',
     notes: 'lorem ipsum'
   },
   {
-    id: '237954311',
+    id: '3',
     name: 'tools',
     description: 'lorem ipsum',
-    is_void: false,
+    is_void: 'false',
     created_by: 'Jane Doe',
     modified_by: 'John Doe',
     notes: 'lorem ipsum'

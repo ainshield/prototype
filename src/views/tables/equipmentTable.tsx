@@ -6,23 +6,25 @@ import MaterialReactTable, {
   type MRT_Row
 } from 'material-react-table'
 import {
+  AppBar,
   Box,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
-  DialogTitle,
+  DialogTitle, Grid,
   IconButton,
 
   // MenuItem,
   Stack,
-  TextField,
+  TextField, Toolbar,
   Tooltip
 } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
-import { data } from './data/userData'
 import {Info} from "@material-ui/icons";
 import {equipmentdata} from "./data/equipmentData";
+import CloseIcon from "@mui/icons-material/Close";
+import Typography from "@mui/material/Typography";
 
 export type Equipment = {
   id: string
@@ -42,7 +44,7 @@ export type Equipment = {
   status: string
   located_at: string
   other_details: string
-  is_void: boolean
+  is_void: string
   created_by: string
   modified_by: string
   notes: string
@@ -51,6 +53,7 @@ export type Equipment = {
 const EquipmentTable = () => {
 
   const [createModalOpen, setCreateModalOpen] = useState(false)
+  const [viewModalOpen, setViewModalOpen] = useState(false)
   const [tableData, setTableData] = useState<Equipment[]>(() => equipmentdata)
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string
@@ -125,13 +128,23 @@ const EquipmentTable = () => {
 
   const columns = useMemo<MRT_ColumnDef<Equipment>[]>(
     () => [
+      // {
+      //   accessorKey: 'id',
+      //   header: 'ID',
+      //   enableColumnOrdering: false,
+      //   enableEditing: false, //disable editing on this column
+      //   enableSorting: false,
+      //   size: 80,
+      //   hidden: true
+      // },
       {
-        accessorKey: 'id',
-        header: 'ID',
+        accessorKey: 'categoryId',
+        header: 'Category',
         enableColumnOrdering: false,
-        enableEditing: false, //disable editing on this column
-        enableSorting: false,
-        size: 80
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
       },
       {
         accessorKey: 'name',
@@ -143,8 +156,53 @@ const EquipmentTable = () => {
         })
       },
       {
+        accessorKey: 'description',
+        header: 'Description',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
         accessorKey: 'brand',
         header: 'Brand',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'unit',
+        header: 'Unit',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'dateAquired',
+        header: 'Date Acquired',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'irri_tag',
+        header: 'IRRI Tag',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'serial_no',
+        header: 'Serial Number',
         enableColumnOrdering: false,
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -175,6 +233,86 @@ const EquipmentTable = () => {
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         })
+      },
+      {
+        accessorKey: 'supplier_id',
+        header: 'Supplier',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
+      },
+      {
+        accessorKey: 'program_id',
+        header: 'Program',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
+      },
+      {
+        accessorKey: 'price',
+        header: 'Price',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
+      },
+      {
+        accessorKey: 'status',
+        header: 'Status',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
+      },
+      {
+        accessorKey: 'located_at',
+        header: 'Located',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
+      },
+      {
+        accessorKey: 'other_details',
+        header: 'Other Details',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
+      },
+      {
+        accessorKey: 'is_void',
+        header: 'Is void',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
+      },
+      {
+        accessorKey: 'created_by',
+        header: 'Created by',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
+      },
+      {
+        accessorKey: 'modified_by',
+        header: 'Modified by',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
+      },
+      {
+        accessorKey: 'notes',
+        header: 'Notes',
+        enableColumnOrdering: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        })
       }
     ],
     [getCommonEditTextFieldProps]
@@ -194,6 +332,23 @@ const EquipmentTable = () => {
         }}
         columns={columns}
         data={tableData}
+        initialState={{ columnVisibility: {
+            id: false,
+            description: false,
+            dateAquired: false,
+            serial_no: false,
+            issued_to: false,
+            accountable_to: false,
+            supplier_id: false,
+            program_id: false,
+            price: false,
+            located_at: false,
+            other_details: false,
+            is_void: false,
+            created_by: false,
+            modified_by: false,
+            notes: false
+          } }}
         editingMode='modal' //default
         enableColumnOrdering
         enableEditing
@@ -202,7 +357,7 @@ const EquipmentTable = () => {
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
             <Tooltip arrow placement='left' title='Info'>
-              <IconButton onClick={() => table.setEditingRow(row)}>
+              <IconButton onClick={() => setViewModalOpen(true)}>
                 <Info />
               </IconButton>
             </Tooltip>
@@ -224,6 +379,11 @@ const EquipmentTable = () => {
           </Button>
         )}
       />
+      <ViewAccountModal
+        columns={columns}
+        open={viewModalOpen}
+        onClose={() => setViewModalOpen(false)}
+      />
       <CreateNewRecordModal
         columns={columns}
         open={createModalOpen}
@@ -231,6 +391,142 @@ const EquipmentTable = () => {
         onSubmit={handleCreateNewRow}
       />
     </>
+  )
+}
+
+interface ViewModalProps {
+  columns: MRT_ColumnDef<Equipment>[]
+  onClose: () => void
+  open: boolean
+}
+
+export const ViewAccountModal = ({ open, columns, onClose}: ViewModalProps) => {
+
+  return (
+
+    <Dialog
+      fullScreen
+      open={open}
+      onClose={onClose}
+
+      PaperProps={{
+        sx: {
+          width: "80%",
+          maxHeight: 800,
+          borderRadius: '12px'
+        }
+      }}
+
+    >
+      <AppBar sx={{ position: 'sticky' }}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={onClose}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
+          <Typography sx={{ ml: 2, flex: 1, color: '#ffffff' }} variant="h6" component="div">
+            View Account
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Grid container p={5} spacing={3} style={{overflow:'auto'}}>
+        <Grid item xs={4}>
+
+        </Grid>
+        <Grid item xs={2}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem'
+            }}
+          >
+            {/*{columns.map(column => (*/}
+            {/*  <div key = {column.accessorKey}>*/}
+            {/*    <Typography>{column.header}</Typography>*/}
+            {/*  </div>*/}
+            {/*))}*/}
+            <div>
+              {/*<Typography>ID</Typography>*/}
+              <Typography>Category ID</Typography>
+              <Typography>Name</Typography>
+              <Typography>Description</Typography>
+              <Typography>Brand</Typography>
+              <Typography>Unit</Typography>
+              <Typography>Date Acquired</Typography>
+              <Typography>IRRI Tag</Typography>
+              <Typography>Serial Number</Typography>
+              <Typography>Issued to</Typography>
+              <Typography>Accountable to</Typography>
+              <Typography>Supplier</Typography>
+              <Typography>Program</Typography>
+              <Typography>Price</Typography>
+              <Typography>Status</Typography>
+              <Typography>Located At</Typography>
+              <Typography>Other Details</Typography>
+              <Typography>Is void</Typography>
+              <Typography>Created By</Typography>
+              <Typography>Modified By</Typography>
+              <Typography>Notes</Typography>
+
+            </div>
+
+          </Stack>
+        </Grid>
+
+        <Grid item xs={2}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem'
+            }}
+          >
+            {equipmentdata.map((row: Equipment) => (
+
+              <div>
+                {/*<Typography>{row.id}</Typography>*/}
+                <Typography>{row.categoryId}</Typography>
+                <Typography>{row.name}</Typography>
+                <Typography>{row.description}</Typography>
+                <Typography>{row.brand}</Typography>
+                <Typography>{row.unit}</Typography>
+                <Typography>{row.dateAquired}</Typography>
+                <Typography>{row.irri_tag}</Typography>
+                <Typography>{row.serial_no}</Typography>
+                <Typography>{row.issued_to}</Typography>
+                <Typography>{row.accountable_to}</Typography>
+                <Typography>{row.supplier_id}</Typography>
+                <Typography>{row.program_id}</Typography>
+                <Typography>{row.price}</Typography>
+                <Typography>{row.status}</Typography>
+                <Typography>{row.located_at}</Typography>
+                <Typography>{row.other_details}</Typography>
+                <Typography>{row.is_void}</Typography>
+                <Typography>{row.created_by}</Typography>
+                <Typography>{row.modified_by}</Typography>
+                <Typography>{row.notes}</Typography>
+
+              </div>
+
+
+            ))}
+
+          </Stack>
+        </Grid>
+
+        <Grid item xs={4}>
+
+        </Grid>
+
+      </Grid>
+
+
+    </Dialog>
   )
 }
 

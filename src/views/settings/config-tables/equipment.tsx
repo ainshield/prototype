@@ -6,37 +6,41 @@ import MaterialReactTable, {
   type MRT_Row
 } from 'material-react-table'
 import {
+  AppBar, Autocomplete,
   Box,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
+  Grid,
   IconButton,
 
   // MenuItem,
   Stack,
   TextField,
+  Toolbar,
   Tooltip
 } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
 import { data } from './data/equipmentdata'
-import {Info} from "@material-ui/icons";
+import { Info } from '@material-ui/icons'
+import CloseIcon from '@mui/icons-material/Close'
+import Typography from '@mui/material/Typography'
 
 export type Equipment = {
   id: string
   name: string
   description: string
-  is_void: boolean
+  is_void: string
   created_by: string
   modified_by: string
   notes: string
-
 }
 
 const EquipmentSettingsTable = () => {
-
   const [createModalOpen, setCreateModalOpen] = useState(false)
+  const [viewModalOpen, setViewModalOpen] = useState(false)
   const [tableData, setTableData] = useState<Equipment[]>(() => data)
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string
@@ -117,25 +121,51 @@ const EquipmentSettingsTable = () => {
         enableColumnOrdering: false,
         enableEditing: false, //disable editing on this column
         enableSorting: false,
-        size: 80
+        size: 80,
+        visible: false
       },
       {
         accessorKey: 'name',
         header: 'Name',
         enableColumnOrdering: false,
-        size: 140,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell)
-        })
+        size: 140
       },
       {
         accessorKey: 'description',
         header: 'Description',
         enableColumnOrdering: false,
-        size: 140,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell)
-        })
+        size: 140
+      },
+      {
+        accessorKey: 'is_void',
+        header: 'Is void',
+        enableColumnOrdering: false,
+        Edit: ({ cell, column, table }) => <Autocomplete
+          disablePortal
+          id='isvoid'
+          options={['true','false']}
+          renderInput={(params) => <TextField {...params}
+                                              InputLabelProps={{ shrink: true }} fullWidth label="Is void" variant='standard' />}
+        />,
+        size: 140
+      },
+      {
+        accessorKey: 'created_by',
+        header: 'Created by',
+        enableColumnOrdering: false,
+        size: 140
+      },
+      {
+        accessorKey: 'modified_by',
+        header: 'Modified by',
+        enableColumnOrdering: false,
+        size: 140
+      },
+      {
+        accessorKey: 'notes',
+        header: 'Notes',
+        enableColumnOrdering: false,
+        size: 140
       }
     ],
     [getCommonEditTextFieldProps]
@@ -163,7 +193,7 @@ const EquipmentSettingsTable = () => {
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
             <Tooltip arrow placement='left' title='Info'>
-              <IconButton onClick={() => table.setEditingRow(row)}>
+              <IconButton onClick={() => setViewModalOpen(true)}>
                 <Info />
               </IconButton>
             </Tooltip>
@@ -185,6 +215,7 @@ const EquipmentSettingsTable = () => {
           </Button>
         )}
       />
+      <ViewInfoModal columns={columns} open={viewModalOpen} onClose={() => setViewModalOpen(false)} />
       <CreateCategoryModal
         columns={columns}
         open={createModalOpen}
@@ -192,6 +223,93 @@ const EquipmentSettingsTable = () => {
         onSubmit={handleCreateNewRow}
       />
     </>
+  )
+}
+
+interface ViewModalProps {
+  columns: MRT_ColumnDef<Equipment>[]
+  onClose: () => void
+  open: boolean
+}
+
+export const ViewInfoModal = ({ open, columns, onClose }: ViewModalProps) => {
+  return (
+    <Dialog
+      fullScreen
+      open={open}
+      onClose={onClose}
+      PaperProps={{
+        sx: {
+          width: '80%',
+          maxHeight: 800,
+          borderRadius: '12px'
+        }
+      }}
+    >
+      <AppBar sx={{ position: 'sticky' }}>
+        <Toolbar>
+          <IconButton edge='start' color='inherit' onClick={onClose} aria-label='close'>
+            <CloseIcon />
+          </IconButton>
+          <Typography sx={{ ml: 2, flex: 1, color: '#ffffff' }} variant='h6' component='div'>
+            View Account
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Grid container p={5} spacing={3} style={{ overflow: 'auto' }}>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={2}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem'
+            }}
+          >
+            {/*{columns.map(column => (*/}
+            {/*  <div key = {column.accessorKey}>*/}
+            {/*    <Typography>{column.header}</Typography>*/}
+            {/*  </div>*/}
+            {/*))}*/}
+            <div>
+              <Typography>ID</Typography>
+              <Typography>Name</Typography>
+              <Typography>Description</Typography>
+              <Typography>Is void</Typography>
+              <Typography>Created By</Typography>
+              <Typography>Modified By</Typography>
+              <Typography>Notes</Typography>
+            </div>
+          </Stack>
+        </Grid>
+
+        <Grid item xs={2}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem'
+            }}
+          >
+            {data.map((row: Equipment) => (
+
+              <div>
+                <Typography>{row.id}</Typography>
+                <Typography>{row.name}</Typography>
+                <Typography>{row.description}</Typography>
+                <Typography>{row.is_void}</Typography>
+                <Typography>{row.created_by}</Typography>
+                <Typography>{row.modified_by}</Typography>
+                <Typography>{row.notes}</Typography>
+              </div>
+
+            ))}
+          </Stack>
+        </Grid>
+
+        <Grid item xs={4}></Grid>
+      </Grid>
+    </Dialog>
   )
 }
 

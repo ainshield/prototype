@@ -17,11 +17,8 @@ import { ThemeColor } from 'src/@core/layouts/types'
 interface RowType {
   equipmentId: string
   equipmentName: string
-  issued: string
-  issuer: string
-  dateIssued: string
   status: string
-  position: string
+  supplier: string
   repairDate: string
 }
 
@@ -35,21 +32,15 @@ const rows: RowType[] = [
   {
     equipmentId: 'TBLT-001',
     status: 'urgent',
-    issued: 'John Doe',
     equipmentName: 'Sony Xperia Z Tablet',
-    dateIssued: '09/27/2020',
-    issuer: 'Jane Doe',
-    position: 'Human Resources Assistant',
+    supplier: 'Sample',
     repairDate: '6/1/2023'
   },
   {
     equipmentId: 'P-157',
     status: 'urgent',
-    issued: 'Juan Dela Cruz',
     equipmentName: 'Nissan Frontier',
-    dateIssued: '6/12/2018',
-    issuer: 'IRRI',
-    position: 'Field Technician',
+    supplier: 'Nissan Calamba',
     repairDate: '5/26/2023'
   }
 ]
@@ -69,12 +60,10 @@ const DashboardTable = () => {
         <Table sx={{ minWidth: 800 }} aria-label='table in dashboard'>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
+              <TableCell>IRRI Tag</TableCell>
               <TableCell>Equipment Name</TableCell>
-              <TableCell>Issuer</TableCell>
-              <TableCell>Issued</TableCell>
-              {/*<TableCell>Issued Date</TableCell>*/}
               <TableCell>Repair Date</TableCell>
+              <TableCell>Supplier</TableCell>
               <TableCell>Status</TableCell>
             </TableRow>
           </TableHead>
@@ -89,10 +78,8 @@ const DashboardTable = () => {
                 {/*</TableCell>*/}
                 <TableCell>{row.equipmentId}</TableCell>
                 <TableCell>{row.equipmentName}</TableCell>
-                <TableCell>{row.issuer}</TableCell>
-                <TableCell>{row.issued}</TableCell>
-                {/*<TableCell>{row.dateIssued}</TableCell>*/}
                 <TableCell>{row.repairDate}</TableCell>
+                <TableCell>{row.supplier}</TableCell>
                 <TableCell>
                   <Chip
                     label={row.status}

@@ -6,22 +6,32 @@ import MaterialReactTable, {
   type MRT_Row
 } from 'material-react-table'
 import {
+  AppBar, Autocomplete,
   Box,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  IconButton,
+  Grid,
+  IconButton, ListItemText,
 
   // MenuItem,
   Stack,
-  TextField,
+  TextField, Toolbar,
   Tooltip
 } from '@mui/material'
+
 import { Delete, Edit } from '@mui/icons-material'
 import { data } from './data/userData'
 import {Info} from "@material-ui/icons";
+import CloseIcon from '@mui/icons-material/Close';
+import Typography from "@mui/material/Typography";
+
+// import ListItem from "@mui/material/ListItem";
+// import List from "@mui/material/List";
+// import Divider from "@mui/material/Divider";
+
 
 export type Person = {
   id: string
@@ -37,7 +47,7 @@ export type Person = {
   position: string
   username: string
   password: string
-  is_void: boolean
+  is_void: string
   createdBy: string
   modifiedBy: string
   notes: string
@@ -46,10 +56,13 @@ export type Person = {
 const UserManagementTable = () => {
 
   const [createModalOpen, setCreateModalOpen] = useState(false)
+  const [viewModalOpen, setViewModalOpen] = useState(false)
   const [tableData, setTableData] = useState<Person[]>(() => data)
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string
   }>({})
+
+
 
   const handleCreateNewRow = (values: Person) => {
     tableData.push(values)
@@ -120,17 +133,17 @@ const UserManagementTable = () => {
 
   const columns = useMemo<MRT_ColumnDef<Person>[]>(
     () => [
-      {
-        accessorKey: 'id',
-        header: 'ID',
-        enableColumnOrdering: false,
-        enableEditing: false, //disable editing on this column
-        enableSorting: false,
-        size: 80
-      },
+      // {
+      //   accessorKey: 'id',
+      //   header: 'ID',
+      //   enableColumnOrdering: false,
+      //   enableEditing: false, //disable editing on this column
+      //   enableSorting: false,
+      //   size: 80
+      // },
       {
         accessorKey: 'username',
-        header: 'username',
+        header: 'Username',
         enableColumnOrdering: false,
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -139,7 +152,7 @@ const UserManagementTable = () => {
       },
       {
         accessorKey: 'password',
-        header: 'password',
+        header: 'Password',
         enableColumnOrdering: false,
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -155,6 +168,106 @@ const UserManagementTable = () => {
           ...getCommonEditTextFieldProps(cell),
           type: 'email'
         })
+      },
+      {
+        accessorKey: 'firstName',
+        header: 'First Name',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'lastName',
+        header: 'Last Name',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+
+      {
+        accessorKey: 'middleName',
+        header: 'Middle Name',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+
+      {
+        accessorKey: 'programId',
+        header: 'ProgramID',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'roleId',
+        header: 'RoleID',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'permissionId',
+        header: 'PermissionID',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'contactNo',
+        header: 'Contact No.',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'mobileNo',
+        header: 'Mobile No.',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'position',
+        header: 'Position',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'is_void',
+        header: 'Void',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        Edit: ({ cell, column, table }) => <Autocomplete
+            disablePortal
+            id='isvoid'
+            options={['true','false']}
+            renderInput={(params) => <TextField {...params}
+                                                InputLabelProps={{ shrink: true }} fullWidth label="Is void" variant='standard' />}
+        />,
+        size: 80
+      },
+      {
+        accessorKey: 'createdBy',
+        header: 'Created by',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'modifiedBy',
+        header: 'Modified',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
+      },
+      {
+        accessorKey: 'notes',
+        header: 'Notes',
+        enableColumnOrdering: false,
+        enableSorting: false,
+        size: 80
       }
     ],
     [getCommonEditTextFieldProps]
@@ -174,6 +287,21 @@ const UserManagementTable = () => {
         }}
         columns={columns}
         data={tableData}
+        initialState={{ columnVisibility: {
+            firstName: false,
+            lastName: false,
+            middleName: false,
+            programId: false,
+            roleId: false,
+            permissionId: false,
+            contactNo: false,
+            mobileNo: false,
+            position: false,
+            is_void: false,
+            createdBy: false,
+            modifiedBy: false,
+            notes: false
+        } }}
         editingMode='modal' //default
         enableColumnOrdering
         enableEditing
@@ -182,7 +310,7 @@ const UserManagementTable = () => {
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
             <Tooltip arrow placement='left' title='Info'>
-              <IconButton onClick={() => table.setEditingRow(row)}>
+              <IconButton onClick={() => setViewModalOpen(true)}>
                 <Info />
               </IconButton>
             </Tooltip>
@@ -204,6 +332,11 @@ const UserManagementTable = () => {
           </Button>
         )}
       />
+      <ViewAccountModal
+        columns={columns}
+        open={viewModalOpen}
+        onClose={() => setViewModalOpen(false)}
+      />
       <CreateNewAccountModal
         columns={columns}
         open={createModalOpen}
@@ -214,6 +347,132 @@ const UserManagementTable = () => {
   )
 }
 
+interface ViewModalProps {
+  columns: MRT_ColumnDef<Person>[]
+  onClose: () => void
+  open: boolean
+}
+
+export const ViewAccountModal = ({ open, columns, onClose}: ViewModalProps) => {
+
+  return (
+
+    <Dialog
+      fullScreen
+      open={open}
+      onClose={onClose}
+
+      PaperProps={{
+          sx: {
+            width: "80%",
+            maxHeight: 800,
+            borderRadius: '12px'
+          }
+      }}
+
+    >
+      <AppBar sx={{ position: 'sticky' }}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={onClose}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
+          <Typography sx={{ ml: 2, flex: 1, color: '#ffffff' }} variant="h6" component="div">
+            View Account
+          </Typography>
+        </Toolbar>
+      </AppBar>
+        <Grid container p={5} spacing={3} style={{overflow:'auto'}}>
+          <Grid item xs={4}>
+
+          </Grid>
+          <Grid item xs={2}>
+            <Stack
+              sx={{
+                width: '100%',
+                minWidth: { xs: '300px', sm: '360px', md: '400px' },
+                gap: '1.5rem'
+              }}
+            >
+              {/*{columns.map(column => (*/}
+              {/*  <div key = {column.accessorKey}>*/}
+              {/*    <Typography>{column.header}</Typography>*/}
+              {/*  </div>*/}
+              {/*))}*/}
+              <div>
+                {/*<Typography>ID</Typography>*/}
+                <Typography>Username</Typography>
+                <Typography>Password</Typography>
+                <Typography>Email</Typography>
+                <Typography>First Name</Typography>
+                <Typography>Last Name</Typography>
+                <Typography>Middle Name</Typography>
+                <Typography>Program</Typography>
+                <Typography>Role</Typography>
+                <Typography>Permission</Typography>
+                <Typography>Contact Number</Typography>
+                <Typography>Mobile Number</Typography>
+                <Typography>Position</Typography>
+                <Typography>Is void</Typography>
+                <Typography>Created by</Typography>
+                <Typography>Modified by</Typography>
+                <Typography>Notes</Typography>
+              </div>
+
+            </Stack>
+          </Grid>
+
+          <Grid item xs={2}>
+            <Stack
+              sx={{
+                width: '100%',
+                minWidth: { xs: '300px', sm: '360px', md: '400px' },
+                gap: '1.5rem'
+              }}
+            >
+              {data.map((row: Person) => (
+
+                <div>
+                  {/*<Typography>{row.id}</Typography>*/}
+                  <Typography>{row.username}</Typography>
+                  <Typography>{row.password}</Typography>
+                  <Typography>{row.email}</Typography>
+                  <Typography>{row.firstName}</Typography>
+                  <Typography>{row.lastName}</Typography>
+                  <Typography>{row.middleName}</Typography>
+                  <Typography>{row.programId}</Typography>
+                  <Typography>{row.roleId}</Typography>
+                  <Typography>{row.permissionId}</Typography>
+                  <Typography>{row.contactNo}</Typography>
+                  <Typography>{row.mobileNo}</Typography>
+                  <Typography>{row.position}</Typography>
+                  <Typography>{row.is_void}</Typography>
+                  <Typography>{row.createdBy}</Typography>
+                  <Typography>{row.modifiedBy}</Typography>
+                  <Typography>{row.notes}</Typography>
+                </div>
+
+
+              ))}
+
+            </Stack>
+          </Grid>
+
+          <Grid item xs={4}>
+
+          </Grid>
+
+        </Grid>
+
+
+    </Dialog>
+  )
+}
+
 interface CreateModalProps {
   columns: MRT_ColumnDef<Person>[]
   onClose: () => void
@@ -221,7 +480,10 @@ interface CreateModalProps {
   open: boolean
 }
 
+
+
 //example of creating a mui dialog modal for creating new rows
+
 export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }: CreateModalProps) => {
   const [values, setValues] = useState<any>(() =>
     columns.reduce((acc, column) => {
@@ -249,14 +511,28 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }: Crea
               gap: '1.5rem'
             }}
           >
-            {columns.map(column => (
-              <TextField
-                key={column.accessorKey}
-                label={column.header}
-                name={column.accessorKey}
-                onChange={e => setValues({ ...values, [e.target.name]: e.target.value })}
-              />
-            ))}
+
+
+            {columns
+              .filter(column => column.accessorKey !== 'id')
+              .map(column => (
+
+
+
+                (column.accessorKey !== 'id' &&
+
+                    < TextField
+                      variant='standard'
+                      key={column.accessorKey}
+                      label={column.header}
+                      name={column.accessorKey}
+                      onChange={e => setValues({...values, [e.target.name]: e.target.value})}
+                    />
+                )
+
+              ))}
+
+
           </Stack>
         </form>
       </DialogContent>

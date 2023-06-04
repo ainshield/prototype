@@ -6,22 +6,25 @@ import MaterialReactTable, {
   type MRT_Row
 } from 'material-react-table'
 import {
+  AppBar,
   Box,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
-  DialogTitle,
+  DialogTitle, Grid,
   IconButton,
 
   // MenuItem,
   Stack,
-  TextField,
+  TextField, Toolbar,
   Tooltip
 } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
 import { supplierdata } from './data/supplierData'
 import {Info} from "@material-ui/icons";
+import CloseIcon from "@mui/icons-material/Close";
+import Typography from "@mui/material/Typography";
 
 export type Supplier = {
 
@@ -30,7 +33,7 @@ export type Supplier = {
   address:string
   contact_no:string
   mobile_no:string
-  is_void:boolean
+  is_void:string
   created_by:string
   modified_by:string
   notes:string
@@ -40,6 +43,7 @@ export type Supplier = {
 const UserManagementTable = () => {
 
   const [createModalOpen, setCreateModalOpen] = useState(false)
+  const [viewModalOpen, setViewModalOpen] = useState(false)
   const [tableData, setTableData] = useState<Supplier[]>(() => supplierdata)
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string
@@ -183,7 +187,7 @@ const UserManagementTable = () => {
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
             <Tooltip arrow placement='left' title='Info'>
-              <IconButton onClick={() => table.setEditingRow(row)}>
+              <IconButton onClick={() => setViewModalOpen(true)}>
                 <Info />
               </IconButton>
             </Tooltip>
@@ -205,6 +209,11 @@ const UserManagementTable = () => {
           </Button>
         )}
       />
+      <ViewAccountModal
+        columns={columns}
+        open={viewModalOpen}
+        onClose={() => setViewModalOpen(false)}
+      />
       <CreateNewAccountModal
         columns={columns}
         open={createModalOpen}
@@ -212,6 +221,116 @@ const UserManagementTable = () => {
         onSubmit={handleCreateNewRow}
       />
     </>
+  )
+}
+
+interface ViewModalProps {
+  columns: MRT_ColumnDef<Supplier>[]
+  onClose: () => void
+  open: boolean
+}
+
+export const ViewAccountModal = ({ open, columns, onClose}: ViewModalProps) => {
+
+  return (
+
+    <Dialog
+      fullScreen
+      open={open}
+      onClose={onClose}
+
+      PaperProps={{
+        sx: {
+          width: "80%",
+          maxHeight: 800,
+          borderRadius: '12px'
+        }
+      }}
+
+    >
+      <AppBar sx={{ position: 'sticky' }}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={onClose}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
+          <Typography sx={{ ml: 2, flex: 1, color: '#ffffff' }} variant="h6" component="div">
+            View Account
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Grid container p={5} spacing={3} style={{overflow:'auto'}}>
+        <Grid item xs={4}>
+
+        </Grid>
+        <Grid item xs={2}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem'
+            }}
+          >
+            {/*{columns.map(column => (*/}
+            {/*  <div key = {column.accessorKey}>*/}
+            {/*    <Typography>{column.header}</Typography>*/}
+            {/*  </div>*/}
+            {/*))}*/}
+            <div>
+              <Typography>ID</Typography>
+              <Typography>Name</Typography>
+              <Typography>Address</Typography>
+              <Typography>Contact Number</Typography>
+              <Typography>Mobile Number</Typography>
+              <Typography>Is Void</Typography>
+              <Typography>Created by</Typography>
+              <Typography>Modified by</Typography>
+              <Typography>Notes</Typography>
+            </div>
+
+          </Stack>
+        </Grid>
+
+        <Grid item xs={2}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem'
+            }}
+          >
+            {supplierdata.map((row: Supplier) => (
+
+              <div>
+                <Typography>{row.id}</Typography>
+                <Typography>{row.name}</Typography>
+                <Typography>{row.address}</Typography>
+                <Typography>{row.contact_no}</Typography>
+                <Typography>{row.mobile_no}</Typography>
+                <Typography>{row.is_void}</Typography>
+                <Typography>{row.created_by}</Typography>
+                <Typography>{row.modified_by}</Typography>
+                <Typography>{row.notes}</Typography>
+              </div>
+
+
+            ))}
+
+          </Stack>
+        </Grid>
+
+        <Grid item xs={4}>
+
+        </Grid>
+
+      </Grid>
+
+
+    </Dialog>
   )
 }
 

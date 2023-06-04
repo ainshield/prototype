@@ -6,22 +6,25 @@ import MaterialReactTable, {
   type MRT_Row
 } from 'material-react-table'
 import {
+  AppBar,
   Box,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
-  DialogTitle,
+  DialogTitle, Grid,
   IconButton,
 
   // MenuItem,
   Stack,
-  TextField,
+  TextField, Toolbar,
   Tooltip
 } from '@mui/material'
 import { Delete, Edit } from '@mui/icons-material'
-import { maintenancedata } from './data/maintenanceRecords'
+import { maintenancedata } from './data/maintenanceData'
 import {Info} from "@material-ui/icons";
+import CloseIcon from "@mui/icons-material/Close";
+import Typography from "@mui/material/Typography";
 
 export type MaintenanceRecord = {
   id:string
@@ -29,7 +32,7 @@ export type MaintenanceRecord = {
   date_schedule:string
   description:string
   user_incharge:string
-  is_void: boolean
+  is_void: string
   created_by:string
   modified_by:string
   notes:string
@@ -38,6 +41,7 @@ export type MaintenanceRecord = {
 const MaintenanceTable = () => {
 
   const [createModalOpen, setCreateModalOpen] = useState(false)
+  const [viewModalOpen, setViewModalOpen] = useState(false)
   const [tableData, setTableData] = useState<MaintenanceRecord[]>(() => maintenancedata)
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string
@@ -139,8 +143,53 @@ const MaintenanceTable = () => {
         })
       },
       {
+        accessorKey: 'description',
+        header: 'Description',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
         accessorKey: 'user_incharge',
         header: 'User',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'is_void',
+        header: 'Is void',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'created_by',
+        header: 'Created by',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'modified_by',
+        header: 'Modified by',
+        enableColumnOrdering: false,
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell)
+        })
+      },
+      {
+        accessorKey: 'notes',
+        header: 'Notes',
         enableColumnOrdering: false,
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -166,6 +215,15 @@ const MaintenanceTable = () => {
         }}
         columns={columns}
         data={tableData}
+        initialState={{ columnVisibility: {
+            id:false,
+            description:false,
+            user_incharge:false,
+            is_void:false,
+            created_by:false,
+            modified_by:false,
+            notes:false
+          } }}
         editingMode='modal' //default
         enableColumnOrdering
         enableEditing
@@ -196,6 +254,11 @@ const MaintenanceTable = () => {
           </Button>
         )}
       />
+      <ViewAccountModal
+        columns={columns}
+        open={viewModalOpen}
+        onClose={() => setViewModalOpen(false)}
+      />
       <CreateNewScheduleModal
         columns={columns}
         open={createModalOpen}
@@ -203,6 +266,121 @@ const MaintenanceTable = () => {
         onSubmit={handleCreateNewRow}
       />
     </>
+  )
+}
+
+interface ViewModalProps {
+  columns: MRT_ColumnDef<MaintenanceRecord>[]
+  onClose: () => void
+  open: boolean
+}
+
+export const ViewAccountModal = ({ open, columns, onClose}: ViewModalProps) => {
+
+  return (
+
+    <Dialog
+      fullScreen
+      open={open}
+      onClose={onClose}
+
+      PaperProps={{
+        sx: {
+          width: "80%",
+          maxHeight: 800,
+          borderRadius: '12px'
+        }
+      }}
+
+    >
+      <AppBar sx={{ position: 'sticky' }}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            onClick={onClose}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
+          <Typography sx={{ ml: 2, flex: 1, color: '#ffffff' }} variant="h6" component="div">
+            View Account
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Grid container p={5} spacing={3} style={{overflow:'auto'}}>
+        <Grid item xs={4}>
+
+        </Grid>
+        <Grid item xs={2}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem'
+            }}
+          >
+            {/*{columns.map(column => (*/}
+            {/*  <div key = {column.accessorKey}>*/}
+            {/*    <Typography>{column.header}</Typography>*/}
+            {/*  </div>*/}
+            {/*))}*/}
+            <div>
+              {/*<Typography>ID</Typography>*/}
+              <Typography>ID</Typography>
+              <Typography>Equipment ID</Typography>
+              <Typography>Scheduled Date</Typography>
+              <Typography>Description</Typography>
+              <Typography>User In Charge</Typography>
+              <Typography>Is void</Typography>
+              <Typography>Created by</Typography>
+              <Typography>Modified by</Typography>
+              <Typography>Notes</Typography>
+
+
+            </div>
+
+          </Stack>
+        </Grid>
+
+        <Grid item xs={2}>
+          <Stack
+            sx={{
+              width: '100%',
+              minWidth: { xs: '300px', sm: '360px', md: '400px' },
+              gap: '1.5rem'
+            }}
+          >
+            {maintenancedata.map((row: MaintenanceRecord) => (
+
+              <div>
+                {/*<Typography>{row.id}</Typography>*/}
+                <Typography>{row.equipment_id}</Typography>
+                <Typography>{row.date_schedule}</Typography>
+                <Typography>{row.description}</Typography>
+                <Typography>{row.user_incharge}</Typography>
+                <Typography>{row.is_void}</Typography>
+                <Typography>{row.created_by}</Typography>
+                <Typography>{row.modified_by}</Typography>
+                <Typography>{row.notes}</Typography>
+
+
+              </div>
+
+
+            ))}
+
+          </Stack>
+        </Grid>
+
+        <Grid item xs={4}>
+
+        </Grid>
+
+      </Grid>
+
+
+    </Dialog>
   )
 }
 
